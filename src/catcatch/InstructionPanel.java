@@ -9,12 +9,12 @@ package catcatch;
  *
  * @author Alex
  */
-public class CreditsPanel extends javax.swing.JPanel {
+public class InstructionPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form CreditsPanel
      */
-    public CreditsPanel() {
+    public InstructionPanel() {
         initComponents();
     }
 
