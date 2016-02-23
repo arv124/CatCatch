@@ -17,11 +17,33 @@ public class Player {
     private int increment= 1; // added becuase we might now want the score to just increase by 1
     private String name;
     
-    public Player()
+    public Player(String name, int lives, int score)
     {
-        
+        this.name = name;
+        this.lives = lives;
+        this.score = score;
     }
-   
+    
+    public int moveLeft(int currentX)
+        {
+            if(currentX == 1){
+                return currentX;
+            } else{
+               return currentX-1;
+            }
+            
+        }
+    
+    public int moveRight(int currentX)
+        {
+            
+            if(currentX == 4){
+                return currentX;
+            } else{
+               return currentX+1;
+            }
+            
+        }
     public void decrementLives()
         {
             lives = lives-1;
