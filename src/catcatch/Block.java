@@ -21,15 +21,19 @@ public class Block {
          this.blockX=x;
          this.blockY=y;
         }
-    public void moveDown()//move the position of the block in the grid to one lower (y coordinate)
+    public int moveDown()//move the position of the block in the grid to one lower (y coordinate)
     {
-        blockY-=blockY;
+        if (blockY>=1)
+        {
+            blockY-=blockY;
+        }
+         return blockY;   
     }
-    public boolean detectCollision()//detect when the block has collided with the person (cat=+, fire=-)
+    public boolean detectCollision(Player player)//detect when the block has collided with the person (cat=+, fire=-)
     {
         //to do: initialize int personX& int personY perhaps in a person class?
         boolean collision=false;
-        if (blockX==personX&&blockY==personY)
+        if (blockY==1&&blockX==player.getCurrentX())
         {
             collision=true;
         }
