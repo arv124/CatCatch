@@ -25,7 +25,7 @@ public class Block {
     {
         blockY-=blockY;
     }
-    public boolean detectCollision(Player player = new player())//detect when the block has collided with the person (cat=+, fire=-)
+    public boolean detectCollision(Player player)//detect when the block has collided with the person (cat=+, fire=-)
     {
         //to do: initialize int personX& int personY perhaps in a person class?
         boolean collision=false;
