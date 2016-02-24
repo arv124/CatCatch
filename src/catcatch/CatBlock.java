@@ -11,9 +11,13 @@ package catcatch;
  */
 public class CatBlock extends Block
 {
-    /*public CatBlock(String spritePath )
+    private int blockX;
+    private int blockY;
+    
+    public CatBlock(int x, int y/*String spritePath*/ )
    {
-       
-   }*/
+       this.blockX=x;
+       this.blockY=y;
+   }
    
 }
