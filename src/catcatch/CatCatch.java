@@ -16,7 +16,7 @@ public class CatCatch {
      */
     public static void main(String[] args) {
         
-        new Controller().setVisible(true);
+        Controller theController = new Controller();
     }
     
 }

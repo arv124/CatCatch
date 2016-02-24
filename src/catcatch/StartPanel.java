@@ -10,11 +10,16 @@ package catcatch;
  * @author Alex
  */
 public class StartPanel extends javax.swing.JPanel {
+    private Controller parentController = null;
 
     /**
      * Creates new form StartPanel
      */
-    public StartPanel() {
+    public StartPanel(){
+        
+    }
+    public StartPanel(Controller parentController) {
+        this.parentController = parentController;
         initComponents();
     }
 
@@ -27,33 +32,85 @@ public class StartPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        title = new javax.swing.JLabel();
+        startButton = new javax.swing.JButton();
+        highScoreButton = new javax.swing.JButton();
+        instructionBut = new javax.swing.JButton();
 
-        jLabel1.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel1.setFont(new java.awt.Font("Jokerman", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel1.setText("CatCatch");
+        title.setBackground(new java.awt.Color(204, 204, 204));
+        title.setFont(new java.awt.Font("Jokerman", 1, 36)); // NOI18N
+        title.setForeground(new java.awt.Color(51, 51, 51));
+        title.setText("CatCatch");
+
+        startButton.setText("Start Game");
+        startButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startButtonActionPerformed(evt);
+            }
+        });
+
+        highScoreButton.setText("High Scores");
+        highScoreButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                highScoreButtonActionPerformed(evt);
+            }
+        });
+
+        instructionBut.setText("Instructions");
+        instructionBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                instructionButActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(137, 137, 137)
-                .addComponent(jLabel1)
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addGap(149, 149, 149)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(highScoreButton)
+                    .addComponent(startButton)
+                    .addComponent(instructionBut))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(110, Short.MAX_VALUE)
+                .addComponent(title)
+                .addGap(107, 107, 107))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jLabel1)
-                .addContainerGap(231, Short.MAX_VALUE))
+                .addGap(60, 60, 60)
+                .addComponent(title)
+                .addGap(27, 27, 27)
+                .addComponent(startButton)
+                .addGap(18, 18, 18)
+                .addComponent(instructionBut)
+                .addGap(18, 18, 18)
+                .addComponent(highScoreButton)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_startButtonActionPerformed
+
+    private void highScoreButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_highScoreButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_highScoreButtonActionPerformed
+
+    private void instructionButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_instructionButActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_instructionButActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton highScoreButton;
+    private javax.swing.JButton instructionBut;
+    private javax.swing.JButton startButton;
+    private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }

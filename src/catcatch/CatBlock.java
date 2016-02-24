@@ -11,9 +11,9 @@ package catcatch;
  */
 public class CatBlock extends Block
 {
-    public CatBlock(String spritePath )
+    /*public CatBlock(String spritePath )
    {
        
-   }
+   }*/
    
 }

@@ -14,8 +14,12 @@ public class Controller {
     final private int WIDTH = 0;
     final private int HEIGHT = 0;
     
-    public Controller()
-    {
+    private StartPanel startPanel = null;
+    
+    public Controller(){
+        startPanel = new StartPanel(this);
+        startPanel.setVisible(true);
+        
         
     }
     public void createJFrame()
