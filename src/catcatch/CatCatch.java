@@ -15,7 +15,6 @@ public class CatCatch {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
         Controller theController = new Controller();
     }
     
