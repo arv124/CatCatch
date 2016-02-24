@@ -30,22 +30,26 @@ public class InstructionPanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
 
+        jLabel1.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Instructions");
         jLabel1.setHorizontalAlignment(SwingConstants.CENTER);
 
-        jLabel2.setText("Welcome to CatCatch! In this game you are the firefighter that is tasked with catching \n "
-            + "              the unexplained number of cats falling from the burning building your team is trying \n "
-            + "              to save! You must dodge the burning objects while catching the falling cats. To move \n "
-            + "              left and right, use the arrow keys. If you miss more than 3 cats, or get hit by more \n"
-            + "              than 3 peices of burning debris, you lose! Catch the cats to earn points.");
+        jLabel2.setFont(new java.awt.Font("DialogInput", 0, 14)); // NOI18N
+        jLabel2.setText("<html> \"Welcome to CatCatch! In this game you are the firefighter that is tasked with catching<br> the unexplained number of cats falling from the burning building your team is trying to save!<br> You must dodge the burning objects while catching the falling cats. To move left and right,<br> use the arrow keys. If you miss more than 3 cats, or get hit by morethan 3 peices of burning <br> debris, you lose! Catch the cats to earn points.</html");
+        jLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 31, Short.MAX_VALUE))
+            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -53,7 +57,9 @@ public class InstructionPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(27, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -62,5 +68,6 @@ public class InstructionPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
