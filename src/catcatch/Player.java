@@ -14,8 +14,10 @@ public class Player {
     
     private int lives= 3; //this give live a default start value
     private int score= 0; // same as lives, just a default
-    private int increment= 1; // added becuase we might now want the score to just increase by 1
+    private int increment= 10; // added becuase we might now want the score to just increase by 1
     private String name;
+    private int currentX = 1;
+    private final int CURRENTY = 1;
     
     public Player(String name, int lives, int score)
     {
@@ -37,18 +39,18 @@ public class Player {
     public int moveRight(int currentX)
         {
             
-            if(currentX == 4){
+            if(currentX == 5){
                 return currentX;
             } else{
                return currentX+1;
             }
             
         }
+    
     public void decrementLives()
         {
             lives = lives-1;
         }
-    
     public void increaseScore()
         {
             score = score + increment;
@@ -64,6 +66,10 @@ public class Player {
     public String getName()
         {
             return name;
+        }
+    public int getXCoord()
+        {
+           return this.currentX;
         }
     
 }
