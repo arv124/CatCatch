@@ -11,8 +11,12 @@ package catcatch;
  */
 public class FireBlock extends Block
 {
-   public FireBlock(String spritePath )
-   {
-       
-   }
+    private int blockX;
+    private int blockY;
+    
+    public FireBlock(int x, int y/*String spritePath*/ )
+    {
+       this.blockX=x;
+       this.blockY=y;
+    }
 }
