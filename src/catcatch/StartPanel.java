@@ -51,8 +51,18 @@ public class StartPanel extends javax.swing.JFrame {
         });
 
         instructionBut.setText("Instructions");
+        instructionBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                instructionButActionPerformed(evt);
+            }
+        });
 
         highScoreBut.setText("High Scores");
+        highScoreBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                highScoreButActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -106,8 +116,22 @@ public class StartPanel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
-        // TODO add your handling code here:
+        this.rootPane.setContentPane(new GamePanel());
+        this.rootPane.invalidate();
+        this.rootPane.validate();
     }//GEN-LAST:event_startButtonActionPerformed
+
+    private void instructionButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_instructionButActionPerformed
+        this.rootPane.setContentPane(new InstructionPanel());
+        this.rootPane.invalidate();
+        this.rootPane.validate();
+    }//GEN-LAST:event_instructionButActionPerformed
+
+    private void highScoreButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_highScoreButActionPerformed
+        this.rootPane.setContentPane(new ScorePanel());
+        this.rootPane.invalidate();
+        this.rootPane.validate();
+    }//GEN-LAST:event_highScoreButActionPerformed
 
     /**
      * @param args the command line arguments
