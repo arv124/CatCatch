@@ -13,14 +13,21 @@ package catcatch;
 public class Controller {
     final private int WIDTH = 0;
     final private int HEIGHT = 0;
+    StartPanel startPanel = new StartPanel(this);
+    GamePanel gamePanel = new GamePanel(this);
     
     public Controller(){
-        
-        StartPanel startPanel = new StartPanel(this);
         startPanel.setVisible(true);
         startPanel.setLocationRelativeTo(null);
        
     }
+    
+    public void changeGamePanel(){
+        startPanel.setVisible(false);
+        gamePanel.setVisible(true);
+        gamePanel.setLocationRelativeTo(null);
+    }
+    
     public void createJFrame()
     {
         
