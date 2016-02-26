@@ -16,7 +16,7 @@ import java.nio.charset.Charset;
  * @author Alex
  */
 public class ScorePanel extends javax.swing.JPanel {
-
+//
     /**
      * Creates new form ScorePanel
      */

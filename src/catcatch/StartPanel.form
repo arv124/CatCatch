@@ -102,11 +102,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Instructions"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="instructionButActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="highScoreBut">
           <Properties>
             <Property name="text" type="java.lang.String" value="High Scores"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="highScoreButActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
