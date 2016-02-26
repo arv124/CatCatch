@@ -32,16 +32,16 @@ public class StartPanel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        StartPanel = new javax.swing.JPanel();
+        titleLabel = new javax.swing.JLabel();
         startButton = new javax.swing.JButton();
         instructionBut = new javax.swing.JButton();
         highScoreBut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Jokerman", 0, 42)); // NOI18N
-        jLabel1.setText("CatCatch");
+        titleLabel.setFont(new java.awt.Font("Jokerman", 0, 42)); // NOI18N
+        titleLabel.setText("CatCatch");
 
         startButton.setText("Start Game");
         startButton.addActionListener(new java.awt.event.ActionListener() {
@@ -54,28 +54,28 @@ public class StartPanel extends javax.swing.JFrame {
 
         highScoreBut.setText("High Scores");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout StartPanelLayout = new javax.swing.GroupLayout(StartPanel);
+        StartPanel.setLayout(StartPanelLayout);
+        StartPanelLayout.setHorizontalGroup(
+            StartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(StartPanelLayout.createSequentialGroup()
+                .addGroup(StartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(StartPanelLayout.createSequentialGroup()
                         .addGap(144, 144, 144)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(StartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(instructionBut)
                             .addComponent(startButton)
                             .addComponent(highScoreBut)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGroup(StartPanelLayout.createSequentialGroup()
                         .addGap(92, 92, 92)
-                        .addComponent(jLabel1)))
+                        .addComponent(titleLabel)))
                 .addContainerGap(94, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        StartPanelLayout.setVerticalGroup(
+            StartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(StartPanelLayout.createSequentialGroup()
                 .addGap(55, 55, 55)
-                .addComponent(jLabel1)
+                .addComponent(titleLabel)
                 .addGap(28, 28, 28)
                 .addComponent(startButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -91,14 +91,14 @@ public class StartPanel extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(StartPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(StartPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -145,10 +145,10 @@ public class StartPanel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel StartPanel;
     private javax.swing.JButton highScoreBut;
     private javax.swing.JButton instructionBut;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JButton startButton;
+    private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }
