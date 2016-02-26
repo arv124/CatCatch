@@ -33,11 +33,11 @@ public class Block {
     {
         //to do: initialize int personX& int personY perhaps in a person class?
         boolean collision=false;
-        if (blockY==1&&blockX==player.getCurrentX())
+        if (blockY==1&&blockX==player.getXCoord())
         {
             collision=true;
         }
-        
+        return collision;
         
     }
 }

@@ -16,7 +16,6 @@ public class FireBlock extends Block
     
     public FireBlock(int x, int y/*String spritePath*/ )
     {
-       this.blockX=x;
-       this.blockY=y;
+       super(x, y);
     }
 }

@@ -16,8 +16,7 @@ public class CatBlock extends Block
     
     public CatBlock(int x, int y/*String spritePath*/ )
    {
-       this.blockX=x;
-       this.blockY=y;
+       super(x, y);
    }
    
 }
