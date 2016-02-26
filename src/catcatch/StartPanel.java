@@ -116,6 +116,7 @@ public class StartPanel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
+
         this.rootPane.setContentPane(new GamePanel());
         this.rootPane.invalidate();
         this.rootPane.validate();

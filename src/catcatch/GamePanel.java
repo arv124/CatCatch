@@ -10,14 +10,8 @@ package catcatch;
  * @author qpm5006
  */
 public class GamePanel extends javax.swing.JPanel {
-    private Controller parentcontroller = null;
-
-    public GamePanel() {
-        
-    }
     
-    public GamePanel(Controller parentcontroller){
-        this.parentcontroller = parentcontroller;
+    public GamePanel(){
         initComponents();
     }
     
