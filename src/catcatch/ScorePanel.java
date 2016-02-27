@@ -28,7 +28,7 @@ public class ScorePanel extends javax.swing.JPanel {
     
     public ScorePanel() 
     {
-        
+        //readFile();
         initComponents();
         
     }
