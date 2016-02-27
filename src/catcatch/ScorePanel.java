@@ -21,14 +21,23 @@ public class ScorePanel extends javax.swing.JPanel {
      * Creates new form ScorePanel
      */
     ArrayList<String> lines = new ArrayList<String>();
-    private String[] players;
-    final private String SCOREFILEPATH = null;
+    
+    final private String SCOREFILEPATH = "C:\\Users\\Alex\\Documents\\NetBeansProjects\\CatCatch\\src\\catcatch\\highscores.txt";
     private String newEntry = null;
     
     
     public ScorePanel() 
     {
-        //readFile();
+        try
+            {
+                readFile();
+            }
+        catch(IOException e)
+            {
+                e.printStackTrace();
+            }
+        
+        System.out.println(lines.toString());
         initComponents();
         
     }
@@ -42,11 +51,16 @@ public void readFile() throws IOException
                 while ((line = reader.readLine()) != null) 
                  {
                      lines.add(line);
+                     line = null;
                  }
+                if (lines.isEmpty())
+                {
+                    throw new IOException ("lines is empty");
+                }
             }    
         catch (IOException e) 
             {
-                
+                System.out.println("File not read!");
             } 
         finally 
             {
@@ -55,12 +69,7 @@ public void readFile() throws IOException
                         reader.close();
                     }   
             }
-        players = new String[lines.size()];
         
-        for (int i = 0; i <= lines.size(); i++)
-            {
-              players[i] = lines.get(i);
-            }
     }   
 
 
