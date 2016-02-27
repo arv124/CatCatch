@@ -22,10 +22,9 @@ public class Block extends Rectangle {
     //private int blockX;
     private int blockY;
     private int numBlocks;
-    private Color blockColor;
     private int blockSpeed;
     private final int blockSize;
-    public boolean dirRight;
+
     
     public Block(int panelWidth, int panelHeight)
         {
@@ -34,9 +33,8 @@ public class Block extends Rectangle {
          blockSize = 20;
          blockSpeed = 10;
          numBlocks = 10;
-         dirRight = true;
          this.setBounds(0, size.height-blockSize, blockSize, blockSize);
-         
+
          for(int i =0; i < numBlocks; i++ ){
              this.addBlocks();
          }
@@ -54,7 +52,7 @@ public class Block extends Rectangle {
     
     public void updateAndDraw (Graphics g){
         this.update();
-        g.setColor(blockColor);
+        g.setColor(Color.GREEN);
         g.fillRect(this.x, this.y, this.width, this.height);
     }
     
@@ -76,11 +74,14 @@ public class Block extends Rectangle {
                 this.resetBlock();
             }
         }
+        this.y += this.blockSpeed;
         
-        
+        if(this.y > size.height){
+            resetBlock();
+        }
     }
     public boolean collision(){
-        return false;
+        return true;
     }
     
     public int moveDown()//move the position of the block in the grid to one lower (y coordinate)
