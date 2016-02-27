@@ -21,8 +21,9 @@ public class Block extends Rectangle {
     private final Dimension size;
     //private int blockX;
     private int blockY;
+    private int numBlocks;
     private Color blockColor;
-    private final int blockSpeed;
+    private int blockSpeed;
     private final int blockSize;
     public boolean dirRight;
     
@@ -32,15 +33,27 @@ public class Block extends Rectangle {
          
          blockSize = 20;
          blockSpeed = 10;
+         numBlocks = 10;
          dirRight = true;
          this.setBounds(0, size.height-blockSize, blockSize, blockSize);
          
-         
+         for(int i =0; i < numBlocks; i++ ){
+             this.addBlocks();
+         }
          
         }
+    public void addBlocks(){
+        resetBlock();
+        
+    }
+    public void resetBlock(){
+        this.x = (int) (Math.random()* (240 - 20));
+        this.y = (int) (15 + Math.random() *30);
+        blockSpeed = (int) (0.2 + Math.random() * 0.5);
+    }
+    
     public void updateAndDraw (Graphics g){
         this.update();
-        
         g.setColor(blockColor);
         g.fillRect(this.x, this.y, this.width, this.height);
     }
@@ -50,8 +63,24 @@ public class Block extends Rectangle {
     }
     
     public void fall(){
-        int blockBottom = this.y +blockSize;
+        int blockBottom = this.y + blockSize;
+        if(blockBottom >= size.height){
+            this.y = size.height - blockSize;
+        }
+        else{
+            this.y += blockSpeed;
+        }
+        for (int i = 0; i< blockY; i++){
+            blockY += i;
+            if(this.collision() == true){
+                this.resetBlock();
+            }
+        }
         
+        
+    }
+    public boolean collision(){
+        return false;
     }
     
     public int moveDown()//move the position of the block in the grid to one lower (y coordinate)
