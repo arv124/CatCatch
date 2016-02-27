@@ -129,11 +129,17 @@ public class StartPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_instructionButActionPerformed
 
     private void highScoreButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_highScoreButActionPerformed
-        this.rootPane.setContentPane(new ScorePanel());
+        this.rootPane.setContentPane(new ScorePanel(this));
         this.rootPane.invalidate();
         this.rootPane.validate();
     }//GEN-LAST:event_highScoreButActionPerformed
 
+    public void instructionBackButActionPerformed() {                                             
+        this.rootPane.setContentPane(new StartPanel());
+        this.rootPane.invalidate();
+        this.rootPane.validate();
+    }
+    
     public void highScoreBackButActionPerformed() {                                             
         this.rootPane.setContentPane(new StartPanel());
         this.rootPane.invalidate();
