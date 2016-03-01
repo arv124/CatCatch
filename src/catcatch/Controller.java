@@ -54,14 +54,14 @@ public class Controller extends JFrame{
     {
         
         jPanel.removeAll();
-        jPanel.add(new InstructionPanel());
+        jPanel.add(new InstructionPanel(this));
         jPanel.invalidate();
         jPanel.validate(); 
     }
     public void switchToScores()
     {
         jPanel.removeAll();
-        jPanel.add(new ScorePanel());
+        jPanel.add(new ScorePanel(this));
         jPanel.invalidate();
         jPanel.validate();
     }
@@ -72,6 +72,12 @@ public class Controller extends JFrame{
         jPanel.invalidate();
         jPanel.validate();
     }
-    
+    public void switchToStart()
+    {
+        jPanel.removeAll();
+        jPanel.add(new StartPanel(this));
+        jPanel.invalidate();
+        jPanel.validate();
+    }
     
 }

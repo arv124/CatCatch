@@ -12,12 +12,11 @@ import javax.swing.*;
  */
 public class InstructionPanel extends javax.swing.JPanel {
 
-    /**
-     * Creates new form CreditsPanel
-     */
-    public InstructionPanel() {
+    private Controller theController;
+    public InstructionPanel(Controller controller) {
         
         initComponents();
+        theController = controller;
     }
 
     
@@ -91,7 +90,7 @@ public class InstructionPanel extends javax.swing.JPanel {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        
+        theController.switchToStart();
         
     }//GEN-LAST:event_jButton1MouseClicked
     
