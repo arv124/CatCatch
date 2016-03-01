@@ -27,9 +27,9 @@ public class Controller extends JFrame{
         //On controller initialization we need to have it creat a JFrame and a 
         //JPanel so then we will have one parent JPanel to add other elements to
         createGUI();
-        StartPanel startPanel = new StartPanel(this);
-        startPanel.setVisible(true);
-        startPanel.setLocationRelativeTo(null);
+        //StartPanel startPanel = new StartPanel(this);
+        //startPanel.setVisible(true);
+        //startPanel.setLocationRelativeTo(null);
        
     }
     
@@ -37,13 +37,41 @@ public class Controller extends JFrame{
     public void createGUI()
     {
         this.jFrame = new JFrame("Cat Catch");
-        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-        jFrame.setVisible(true);
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jFrame.setSize(400,400);
+        
+       
         
         jPanel = new JPanel(new BorderLayout());
-        
+        StartPanel startPanel = new StartPanel(this);
         jFrame.add(jPanel);
+        jPanel.add(startPanel);
+        jFrame.setVisible(true);
         
     }
+    
+    public void switchToInstructions()
+    {
+        
+        jPanel.removeAll();
+        jPanel.add(new InstructionPanel());
+        jPanel.invalidate();
+        jPanel.validate(); 
+    }
+    public void switchToScores()
+    {
+        jPanel.removeAll();
+        jPanel.add(new ScorePanel());
+        jPanel.invalidate();
+        jPanel.validate();
+    }
+    public void switchToGame()
+    {
+        jPanel.removeAll();
+        jPanel.add(new GamePanel());
+        jPanel.invalidate();
+        jPanel.validate();
+    }
+    
     
 }

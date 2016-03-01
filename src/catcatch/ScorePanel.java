@@ -24,11 +24,11 @@ public class ScorePanel extends javax.swing.JPanel {
     // SCOREFILEPATH must be set to local machine address until I figure out how to use relative addresses. :(
     final private String SCOREFILEPATH = "C:\\Users\\Alex\\Documents\\NetBeansProjects\\CatCatch\\src\\catcatch\\highscores.txt";
     private String newEntry;
-    private final StartPanel startPanel;
     
-    public ScorePanel(StartPanel panel) 
+    
+    public ScorePanel() 
     {
-        startPanel =panel;
+        
         try
             {
                 readFile();
@@ -269,9 +269,7 @@ return lines.toString();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        startPanel.setVisible(true);
-        this.setVisible(false);
-        this.remove(this);
+        
     }//GEN-LAST:event_jButton2MouseClicked
 
 

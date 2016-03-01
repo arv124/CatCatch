@@ -17,7 +17,7 @@ import javax.swing.border.LineBorder;
  *
  * @author kjrya
  */
-public class GamePanel{
+public class GamePanel extends javax.swing.JPanel{
     
     
     private final JPanel gui = new JPanel(new BorderLayout(3,3));

@@ -11,12 +11,12 @@ import javax.swing.*;
  * @author Alex
  */
 public class InstructionPanel extends javax.swing.JPanel {
-private final StartPanel startPanel;
+
     /**
      * Creates new form CreditsPanel
      */
-    public InstructionPanel(StartPanel panel ) {
-        startPanel = panel;
+    public InstructionPanel() {
+        
         initComponents();
     }
 
@@ -91,9 +91,7 @@ private final StartPanel startPanel;
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        startPanel.setVisible(true);
-        this.setVisible(false);
-        this.remove(this);
+        
         
     }//GEN-LAST:event_jButton1MouseClicked
     
