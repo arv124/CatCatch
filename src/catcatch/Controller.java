@@ -61,14 +61,14 @@ public class Controller extends JFrame{
     public void switchToScores()
     {
         jPanel.removeAll();
-        jPanel.add(new ScorePanel(this));
+        jPanel.add(new ScorePanel(this, "str"));
         jPanel.invalidate();
         jPanel.validate();
     }
     public void switchToGame()
     {
         jPanel.removeAll();
-        jPanel.add(new GamePanel());
+        jPanel.add(new GamePanel(this));
         jPanel.invalidate();
         jPanel.validate();
     }
