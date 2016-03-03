@@ -27,7 +27,7 @@ public class Player extends Rectangle {
     private final int speed;
     private int currentX;
     private final int CURRENTY = 1;
-    private final BufferedImage playerImage = null;
+    private final BufferedImage playerImage = (new ImageLoader().load("src\\catcatch\\fireman.png"));
     private final int panelWidth = 400;
     private final int panelHeight = 400;
     
