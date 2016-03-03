@@ -24,7 +24,7 @@ public class Block extends Rectangle {
     
     final private String SPRITEPATH= null;
     private final Dimension size;
-    //private int blockX;
+    private int blockX;
     private int blockY;
     private int numBlocks;
     private int blockSpeed;
@@ -32,7 +32,11 @@ public class Block extends Rectangle {
     private final String FIREFILEPATH = null;
     private final String PLAYERFILEPATH = null;
     private final String CATFILEPATH = null;
-    public Block(int panelWidth, int panelHeight)
+    
+    public BufferedImage image; 
+    public GamePanel gamePanel;
+    
+    public Block(int panelWidth, int panelHeight, BufferedImage image)
         {
          size = new Dimension (panelWidth, panelHeight);
          
@@ -44,7 +48,8 @@ public class Block extends Rectangle {
          for(int i =0; i < numBlocks; i++ ){
              this.addBlocks();
          }
-         
+         this.image=image;
+         this.gamePanel= new GamePanel();
         }
     public void addBlocks(){
         resetBlock();
@@ -109,43 +114,8 @@ public class Block extends Rectangle {
         return collision;
         
     }
-    protected Image loadImage(String blockType)
+    public void drawBlock(Graphics g)
     {
-        BufferedImage img = null;
-        if(blockType.equals("Fire"))
-          {
-            try 
-                {
-                     img = ImageIO.read(new File(FIREFILEPATH));
-                }       
-            catch (IOException e) 
-                {
-            
-                }
-          }
-        if(blockType.equals("Cat"))
-            {
-                try 
-                    {
-                      img = ImageIO.read(new File(CATFILEPATH));
-                    }       
-                catch (IOException e) 
-                {
-            
-                }
-        }
-        if(blockType.equals("Player"))
-            {
-             try 
-                 {
-                     img = ImageIO.read(new File(FIREFILEPATH));
-                 }       
-             catch (IOException e) 
-            {
-            
-            }
-        }
-        
-    return img;
+        g.drawImage(image, blockX, blockY, gamePanel);
     }
 }

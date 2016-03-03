@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package catcatch;
+import java.awt.image.BufferedImage;
 
 /**
  *
@@ -14,8 +15,8 @@ public class FireBlock extends Block
     private int blockX;
     private int blockY;
     
-    public FireBlock(int x, int y/*String spritePath*/ )
+    public FireBlock(int x, int y, BufferedImage image )
     {
-       super(x, y);
+       super(x, y, image);
     }
 }
