@@ -22,7 +22,7 @@ public class ScorePanel extends javax.swing.JPanel {
     private Controller theController;
     ArrayList<String> lines = new ArrayList<String>();
     // SCOREFILEPATH must be set to local machine address until I figure out how to use relative addresses. :(
-    final private String SCOREFILEPATH = "C:\\Users\\Alex\\Documents\\NetBeansProjects\\CatCatch\\src\\catcatch\\highscores.txt";
+    final private String SCOREFILEPATH = "src\\catcatch\\highscores.txt";
     
     
     public ScorePanel(Controller controller, String panel) 
