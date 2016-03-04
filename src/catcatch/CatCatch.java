@@ -16,10 +16,8 @@ public class CatCatch {
      */
     public static void main(String[] args) {
         Controller theController = new Controller();
-        ImageLoader loader= new ImageLoader();
         
-        BufferedImage fire=loader.load("/fire.jpg");
-        BufferedImage cat=loader.load("/cat.jpg");
+
     }
     
 }

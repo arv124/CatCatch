@@ -97,9 +97,9 @@ public class Block extends Rectangle {
     
     public int moveDown()//move the position of the block in the grid to one lower (y coordinate)
     {
-        if (blockY>=1)
+        if (blockY>=400)
         {
-            blockY-=blockY;
+            blockY--;
         }
          return blockY;   
     }
@@ -107,7 +107,7 @@ public class Block extends Rectangle {
     {
         //to do: initialize int personX& int personY perhaps in a person class?
         boolean collision=false;
-        //if (blockY==1&&blockX==player.getXCoord())
+        if (blockY==400&&blockX==player.getXCoord())
         {
             collision=true;
         }
