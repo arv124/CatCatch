@@ -50,7 +50,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     
     public GamePanel(Controller theController){
         super();
-        this.addKeyListener(this);
         this.theController = theController;
         initcomponents();
     }
@@ -71,6 +70,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
         gameTimer.start();
         blockTimer.start();
         
+        gamePanel.addKeyListener(this);
         setFocusable(true);
         //gui.add(gamePanel);
         this.add(gamePanel);
@@ -115,8 +115,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
                 //SOURCE: https://i.ytimg.com/vi/jcO2BD2Ma1c/maxresdefault.jpg
         //Need to figure out how to get a background on JPanel
         //Intersect methods won't take in an object that doesn't extend rectangle
-        ImageIcon background = new ImageIcon("res/burningBuilding.jpg");
-        background.paintIcon(gamePanel, g, WIDTH, HEIGHT);
+        Image background = new ImageIcon("res/burningBuilding.jpg").getImage();
+        g.drawImage(background, 0, 0, 400, 400, this.gamePanel);
         player.paintComponent(g);
         
         for(int i = 0; i<catBlocks.size();i++)
