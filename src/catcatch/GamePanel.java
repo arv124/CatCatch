@@ -96,11 +96,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
             //updates panel as per gameTimer
                 this.repaint();
             
-//            if(player.getLives() == 0){
-//                gameTimer.stop();
-//                blockTimer.stop();
-//                theController.switchToScores();
-//            }
+            if(player.getLives() == 0){
+                gameTimer.stop();
+                blockTimer.stop();
+                theController.switchToScores();
+            }
         } 
         else if(obj == blockTimer)
         {
@@ -120,9 +120,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     {
         super.paintComponent(g);
         g.clearRect(0,0, 400, 400);
-                //SOURCE: https://i.ytimg.com/vi/jcO2BD2Ma1c/maxresdefault.jpg
+        
+        //SOURCE: https://i.ytimg.com/vi/jcO2BD2Ma1c/maxresdefault.jpg
         //Need to figure out how to get a background on JPanel
         //Intersect methods won't take in an object that doesn't extend rectangle
+        
         Image background = new ImageIcon("res/burningBuilding.jpg").getImage();
         g.drawImage(background, 0, 0, 400, 400, this.gamePanel);
         player.paintComponent(g);
@@ -130,7 +132,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
         for(int i = 0; i<catBlocks.size();i++)
         {
             
-            //catBlocks.get(i).paintComponent(g);
+            catBlocks.get(i).drawBlock(g);
             
 //            if(player.intersects(catBlocks.get(i)))
 //            {
