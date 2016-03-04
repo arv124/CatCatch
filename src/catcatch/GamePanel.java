@@ -113,13 +113,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     {
         super.paintComponent(g);
         g.clearRect(0,0, 400, 400);
-        ImageIcon playerImage1 = new ImageIcon("C:\\Users\\Qiu\\Documents\\NetBeansProjects\\CatCatch\\res\\fireman.png");
-        playerImage1.paintIcon(this, g, 180, 300);
+        ImageIcon playerImage = new ImageIcon("src/catcatch/fireman.png");
+        playerImage.paintIcon(this, g, 180, 300);
+
                 //SOURCE: https://i.ytimg.com/vi/jcO2BD2Ma1c/maxresdefault.jpg
         //Need to figure out how to get a background on JPanel
         //Intersect methods won't take in an object that doesn't extend rectangle
         
-        //player.paintComponent(g);
+        player.paintComponent(g);
         
         for(int i = 0; i<catBlocks.size();i++)
         {
