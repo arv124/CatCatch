@@ -28,7 +28,7 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener /*Ke
     
     private Timer gameTimer;
     private Timer blockTimer;
-    private Player player;
+    private Player player = new Player("", 3, 0);
     private ArrayList<CatBlock> catBlocks;
     private ArrayList<FireBlock> fireBlocks;
     private Boolean gameStatus;
@@ -87,31 +87,36 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener /*Ke
     {
         super.paintComponent(g);
         g.clearRect(0,0, this.getWidth(), this.getHeight());
-        g.drawImage(loader.load("\\src\\catcatch\\burning_building.jpg"), this.getWidth(), this.getHeight(), this);
+        //g.drawImage(loader.load("src/res/burning_building.jpg"), this.getWidth(), this.getHeight(), this);
         
         //SOURCE: https://i.ytimg.com/vi/jcO2BD2Ma1c/maxresdefault.jpg
         //Need to figure out how to get a background on JPanel
         //Intersect methods won't take in an object that doesn't extend rectangle
-        //player.paintComponent(g);
-        /*
+        player.paintComponent(g);
+        
         for(int i = 0; i<catBlocks.size();i++)
         {
-            //catBlocks.get(i).paintComponent(g);
             
-            //not sure if -10 or +10 for collisions
-            if(player.intersects(catBlocks.get(i))){
+            catBlocks.get(i).paintComponent(g);
+            
+            if(player.intersects(catBlocks.get(i)))
+            {
                 player.increaseScore();
             }
-        }
-        for(int i = 0; i<fireBlocks.size(); i++){
-            //fireBlocks.get(i).paintComponent(g);
             
-            //not sure if -10 or +10 for collisions
-            if(player.intersects(fireBlocks.get(i))){
+        }
+        for(int i = 0; i<fireBlocks.size(); i++)
+        {
+            
+            fireBlocks.get(i).paintComponent(g);
+            
+            if(player.intersects(fireBlocks.get(i)))
+            {
                 player.decrementLives();
             }
+            
         }
-        
+        /*
         @Override
         public void keyTyped(KeyEvent event){
             

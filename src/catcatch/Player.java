@@ -30,10 +30,11 @@ public class Player extends Rectangle {
     private final int speed;
     private int currentX;
     private final int CURRENTY = 1;
-    private final Image playerImage = (new ImageIcon("src\\catcatch\\fireman.png").getImage());
+    private final Image playerImage = (new ImageIcon("src/res/fireman.png").getImage());
     //SOURCE: http://orig11.deviantart.net/505b/f/2013/362/f/6/fire_fighter_cleave_by_norrec18-d6zu5dp.gif
     private final int panelWidth = 400;
     private final int panelHeight = 400;
+    
     
     public Player(String name, int lives, int score)
     {
@@ -63,7 +64,8 @@ public class Player extends Rectangle {
     }
     
     
-    public void move(){
+    public void move()
+    {
         if(this.x >= panelWidth-playerSize){
             this.x -=speed;
         } else if(x<=0){
@@ -74,11 +76,9 @@ public class Player extends Rectangle {
     }
     
     
-    
     public void paintComponent(Graphics g)
     {
         move();
-        g.setColor(Color.red);
         g.drawImage(playerImage, x, y, gamePanel);
     }
     
