@@ -49,7 +49,7 @@ public class Block extends Rectangle {
              this.addBlocks();
          }
          this.image=image;
-         this.gamePanel= new GamePanel();
+         this.gamePanel= new GamePanel(new Controller());
         }
     public void addBlocks(){
         resetBlock();
