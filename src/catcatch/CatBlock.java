@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package catcatch;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 
 /**
@@ -14,11 +16,16 @@ public class CatBlock extends Block
 {
     private int blockX;
     private int blockY;
-    public BufferedImage image;
+    public Image image;
     
-    public CatBlock(int x, int y, BufferedImage image)
-   {
+    public CatBlock(int x, int y, Image image)
+    {
        super(x, y, image);
-   }
+    }
+    
+    @Override
+    public void drawBlock(Graphics g){
+        
+    }
    
 }
