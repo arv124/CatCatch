@@ -1,13 +1,9 @@
 package catcatch;
 
 import java.awt.Color;
-import java.awt.Font;
-import java.awt.FontMetrics;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.Image;
-import java.awt.RenderingHints;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,19 +30,21 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     
     private Timer gameTimer;
     private Timer blockTimer;
-    private Player player = new Player("", 3, 0);
+    private Player player;
     private ArrayList<CatBlock> catBlocks;
     private ArrayList<FireBlock> fireBlocks;
-    private Boolean gameStatus =false;
+    private Boolean inGame;
     private final JPanel gui = new JPanel(new GridLayout(2,1));
     private final JPanel gamePanel = new JPanel();
     private JLabel scoreLabel;
+    private JLabel livesLabel;
     public Controller theController;
 
     private final Image background = (new ImageIcon("src/res/burning_building.jpg").getImage());
     private final Image catImage = (new ImageIcon("src/res/cat.jpg").getImage());
     private final Image fireImage = (new ImageIcon("src/res/fire.jpg").getImage());
     private final Image playerImage = (new ImageIcon("src\\res\\fireman.png").getImage());
+    
     
     public GamePanel(Controller theController){
         super();
@@ -55,25 +53,33 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     }
     
     public void initcomponents(){
+        this.gamePanel.addKeyListener(this);
+        player = new Player("P1",3,0);
         scoreLabel = new JLabel("Your Score: "+ player.getScore());
         gamePanel.add(scoreLabel);
+        livesLabel = new JLabel("Your Lives: "+ player.getLives());
+        gamePanel.add(livesLabel);
         gamePanel.setSize(400, 400);
         //this.setLayout(new GridLayout(1,1));
         gamePanel.setBorder(new LineBorder(Color.BLACK));
         
-        
         catBlocks = new ArrayList<>();
         fireBlocks = new ArrayList<>();
         
+        inGame = true;
         gameTimer = new Timer(100, this);
-        blockTimer = new Timer(500, this);
         gameTimer.start();
+        blockTimer = new Timer(500, this);
         blockTimer.start();
-        
-        gamePanel.addKeyListener(this);
         setFocusable(true);
+        requestFocusInWindow();
         //gui.add(gamePanel);
-        this.add(gamePanel);
+        
+        fireBlocks = new ArrayList<>();
+        catBlocks = new ArrayList<>();
+        
+        FireBlock.blockImages.add("res/fireBall.png");
+       
         
     }
     
@@ -82,7 +88,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
         
         //sets the object to the source of whatever event occurs
         Object obj = event.getSource();
-        
+        this.addKeyListener(this);
         if(obj == gameTimer)
         {
             //updates panel as per gameTimer

@@ -6,6 +6,7 @@
 package catcatch;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -22,12 +23,14 @@ public class FireBlock extends Rectangle{
     private int fireSize;
     private final Dimension size;
     private GamePanel gamePanel;
-    private ImageIcon fireImage;
+    private Image fireImage;
     
-    public static ArrayList<String> fireList = new ArrayList<String>();
+    public static ArrayList<String> blockImages = new ArrayList<String>();
     
     public FireBlock(int panelHeight, int panelWidth, GamePanel gamePanel){
-        super.setLocation(x,y);
+        
+        this.fireImage = this.getImage();
+        this.gamePanel = gamePanel;
         this.fireSize=32;
         this.fireSize=10;
         double f = Math.random();
@@ -35,11 +38,17 @@ public class FireBlock extends Rectangle{
         this.size = new Dimension (panelHeight, panelWidth);
         this.setBounds(random,400,fireSize,fireSize);
     }
+    public Image getImage(){
+         Random rand = new Random();
+         int randNum = rand.nextInt(this.blockImages.size());
+         Image fireImage = new ImageIcon(this.blockImages.get(randNum)).getImage();
+         return fireImage;
+    }
     
     public void paintComponent(Graphics g){
         move();
-        ImageIcon playerImage = new ImageIcon("res/fireBall.png");
-        this.fireImage.paintIcon(this.gamePanel, g, this.width, this.height);
+        getImage();
+        g.drawImage(fireImage,this.x,this.y, this.width, this.height, gamePanel);
     }
     
     public int getCurrentX(){

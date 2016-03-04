@@ -28,6 +28,7 @@ public class Player extends Rectangle {
     //SOURCE: http://orig11.deviantart.net/505b/f/2013/362/f/6/fire_fighter_cleave_by_norrec18-d6zu5dp.gif
     private final int panelWidth = 400;
     private final int panelHeight = 400;
+    private Image playerImage;
     
     
     public Player(String name, int lives, int score)
@@ -73,8 +74,8 @@ public class Player extends Rectangle {
     public void paintComponent(Graphics g)
     {
         move();
-        ImageIcon playerImage = new ImageIcon("res/fireman.png");
-        playerImage.paintIcon(this.gamePanel, g, 180, 300);
+        Image playerImage = new ImageIcon("res/fireman.png").getImage();
+        g.drawImage(playerImage, 180, 300, 38, 39, gamePanel);
     }
     
     
@@ -102,5 +103,7 @@ public class Player extends Rectangle {
         {
            return this.currentX;
         }
-    
+    public void setCurrentX(int currentX){
+        this.x+=currentX;
+    }
 }
