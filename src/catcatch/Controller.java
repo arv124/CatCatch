@@ -39,6 +39,7 @@ public class Controller extends JFrame{
         this.jFrame = new JFrame("Cat Catch");
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.setSize(400,400);
+        jFrame.setLocationRelativeTo(null);
         
        
         

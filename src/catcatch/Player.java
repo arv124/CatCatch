@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package catcatch;
 
 import java.awt.Color;
@@ -30,7 +25,6 @@ public class Player extends Rectangle {
     private final int speed;
     private int currentX;
     private final int CURRENTY = 1;
-    private final Image playerImage = (new ImageIcon("src/res/fireman.png").getImage());
     //SOURCE: http://orig11.deviantart.net/505b/f/2013/362/f/6/fire_fighter_cleave_by_norrec18-d6zu5dp.gif
     private final int panelWidth = 400;
     private final int panelHeight = 400;
@@ -44,7 +38,7 @@ public class Player extends Rectangle {
         this.playerSize = 40;
         this.speed = 10;
         this.panelDimension = new Dimension(panelWidth, panelHeight);
-        this.setBounds(0, 40, panelWidth, panelHeight);
+        this.setBounds(0, 40, playerSize, playerSize);
     }
     
     
@@ -66,7 +60,7 @@ public class Player extends Rectangle {
     
     public void move()
     {
-        if(this.x >= panelWidth-playerSize){
+        if(this.x >= 400-playerSize){
             this.x -=speed;
         } else if(x<=0){
             this.x += speed;
@@ -79,7 +73,8 @@ public class Player extends Rectangle {
     public void paintComponent(Graphics g)
     {
         move();
-        g.drawImage(playerImage, x, y, gamePanel);
+        ImageIcon playerImage = new ImageIcon("src/res/fireman.png");
+        playerImage.paintIcon(gamePanel, g, 200, 200);
     }
     
     
