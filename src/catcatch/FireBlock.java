@@ -29,7 +29,7 @@ public class FireBlock extends Rectangle{
     
     public FireBlock(int panelHeight, int panelWidth, GamePanel gamePanel){
         
-        this.fireImage = this.getImage();
+        this.fireImage = this.getFireImage();
         this.gamePanel = gamePanel;
         this.fireSize=32;
         this.fireSize=10;
@@ -38,17 +38,15 @@ public class FireBlock extends Rectangle{
         this.size = new Dimension (panelHeight, panelWidth);
         this.setBounds(random,400,fireSize,fireSize);
     }
-    public Image getImage(){
-         Random rand = new Random();
-         int randNum = rand.nextInt(this.blockImages.size());
-         Image fireImage = new ImageIcon(this.blockImages.get(randNum)).getImage();
-         return fireImage;
+    public Image getFireImage(){
+        Image fireImage = new ImageIcon("res/fireBall.png").getImage();
+        return fireImage;
     }
     
     public void paintComponent(Graphics g){
         move();
-        getImage();
-        g.drawImage(fireImage,this.x,this.y, this.width, this.height, gamePanel);
+        //getFireImage();
+        g.drawImage(fireImage,this.x,this.y, 32, 32, gamePanel);
     }
     
     public int getCurrentX(){

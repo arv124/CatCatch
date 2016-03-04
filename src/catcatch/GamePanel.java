@@ -30,6 +30,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     
     private Timer gameTimer;
     private Timer blockTimer;
+    static int timerCount;
     private Player player;
     private ArrayList<CatBlock> catBlocks;
     private ArrayList<FireBlock> fireBlocks;
@@ -49,6 +50,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     public GamePanel(Controller theController){
         super();
         this.theController = theController;
+        GamePanel.timerCount=0;
         initcomponents();
     }
     
@@ -62,7 +64,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
         gamePanel.setSize(400, 400);
         //this.setLayout(new GridLayout(1,1));
         gamePanel.setBorder(new LineBorder(Color.BLACK));
-        
+        this.add(gamePanel);
         catBlocks = new ArrayList<>();
         fireBlocks = new ArrayList<>();
         
