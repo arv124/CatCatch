@@ -4,6 +4,12 @@ package catcatch;
  *
  * @author qpm5006
  */
+import javax.swing.JComponent;
+import java.awt.GridLayout;
+import java.awt.BorderLayout;
+import javax.swing.*;
+import java.awt.Dimension;
+
 public class StartPanel extends javax.swing.JPanel {
     private Controller theController;
     
@@ -19,16 +25,18 @@ public class StartPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         StartPanel = new javax.swing.JPanel();
-        titleLabel = new javax.swing.JLabel();
+        title = new javax.swing.JLabel("CatCatch", SwingConstants.CENTER);
         startButton = new javax.swing.JButton();
         instructionBut = new javax.swing.JButton();
         highScoreBut = new javax.swing.JButton();
+        centerPanel = new javax.swing.JPanel();
+        centerPanel.setLayout(new GridLayout(4,1));
 
+        title.setFont(new java.awt.Font("Jokerman", 0, 42)); // NOI18N
         
-
-        titleLabel.setFont(new java.awt.Font("Jokerman", 0, 42)); // NOI18N
-        titleLabel.setText("CatCatch");
+        
         startButton.setText("Start Game");
+        startButton.setPreferredSize(new Dimension(40, 40));
         startButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                startButtonActionPerformed(evt);
@@ -36,6 +44,7 @@ public class StartPanel extends javax.swing.JPanel {
         });
 
         instructionBut.setText("Instructions");
+        instructionBut.setPreferredSize(new Dimension(40, 40));
         instructionBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 instructionButActionPerformed(evt);
@@ -43,16 +52,17 @@ public class StartPanel extends javax.swing.JPanel {
         });
 
         highScoreBut.setText("High Scores");
+        highScoreBut.setPreferredSize(new Dimension(40, 40));
         highScoreBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 highScoreButActionPerformed(evt);
             }
         });
-        
-        this.add(titleLabel);
-        this.add(startButton);
-        this.add(instructionBut);
-        this.add(highScoreBut);
+        this.add(centerPanel);
+        centerPanel.add(title);
+        centerPanel.add(startButton);
+        centerPanel.add(instructionBut);
+        centerPanel.add(highScoreBut);
 
         
     }                        
@@ -77,6 +87,7 @@ public class StartPanel extends javax.swing.JPanel {
     private javax.swing.JButton highScoreBut;
     private javax.swing.JButton instructionBut;
     private javax.swing.JButton startButton;
-    private javax.swing.JLabel titleLabel;
+    private javax.swing.JLabel title;
+    private javax.swing.JPanel centerPanel;
     // End of variables declaration                   
 }

@@ -17,11 +17,13 @@ import java.nio.charset.Charset;
  */
 public class ScorePanel extends javax.swing.JPanel {
 //
+    private String entry;
+    private final int MAXSCORELENGTH = 6;
     private Controller theController;
     ArrayList<String> lines = new ArrayList<String>();
     // SCOREFILEPATH must be set to local machine address until I figure out how to use relative addresses. :(
     final private String SCOREFILEPATH = "C:\\Users\\Alex\\Documents\\NetBeansProjects\\CatCatch\\src\\catcatch\\highscores.txt";
-    private String newEntry;
+    
     
     
     public ScorePanel(Controller controller) 
@@ -68,14 +70,31 @@ public void readFile() throws IOException
                         reader.close();
                     }   
             }
-        
+        Collections.sort(lines, Collections.reverseOrder());
     }   
 //for testing
 public String getLines()
 {
 return lines.toString();
 }
-
+private String formatEntry()
+{
+    String rawEntry[] = jFormattedTextField2.getText().split("\\s");
+    String rawEntryScore= rawEntry[0];
+    String rawEntryName = new String(rawEntry.toString().toCharArray(), rawEntryScore.length()-1, rawEntry.length);
+    /*if(rawEntryScore.length() < MAXSCORELENGTH)
+        {
+           int numberOfLeadingZeros = 6 - rawEntryScore.length();
+           for(int i = numberOfLeadingZeros-1; i>0; i--)
+           {      
+           rawEntryScore = "0"+rawEntryScore; 
+           } 
+           
+        }
+    */
+    String formattedEntry = rawEntryScore + "   "+rawEntryName;
+    return formattedEntry;
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -247,7 +266,7 @@ return lines.toString();
         
         try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(SCOREFILEPATH, true))))
             {
-                out.println(newEntry);
+                out.println(this.formatEntry());
                 out.close();
             }
         catch (IOException e)
