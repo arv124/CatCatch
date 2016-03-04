@@ -28,7 +28,7 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener, Key
     
     private Timer gameTimer;
     private Timer blockTimer;
-    private Player player = new Player("", 3, 500);
+    private Player player = new Player("", 3, 0);
     private ArrayList<CatBlock> catBlocks;
     private ArrayList<FireBlock> fireBlocks;
     private Boolean gameStatus;
@@ -37,6 +37,9 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener, Key
     private JLabel scoreLabel;
     public Controller theController;
     private final Image background = (new ImageIcon("src/res/burning_building.jpg").getImage());
+    private final Image catImage = (new ImageIcon("src/res/cat.jpg").getImage());
+    private final Image fireImage = (new ImageIcon("src/res/fire.jpg").getImage());
+    private final Image playerImage = (new ImageIcon("src/res/fireman.png").getImage());
     
     public GamePanel(Controller theController){
         super();
@@ -46,7 +49,6 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener, Key
     }
     
     public void initcomponents(){
-        this.setSize(400,400);
         scoreLabel = new JLabel("Your Score: "+player.getScore());
         gui.add(scoreLabel);
         gamePanel.setSize(400, 400);
@@ -88,9 +90,9 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener, Key
             //adds block objects to their respective arrays
             //still need images for each object
             
-            //catBlocks.add(new CatBlock(400,400, catImage));
-            //fireBlocks.add(new FireBlock(400,400, fireImage));
-            //fireBlocks.add(new FireBlock(400,400, fireImage));
+            catBlocks.add(new CatBlock(400,400, catImage));
+            fireBlocks.add(new FireBlock(400,400, fireImage));
+            fireBlocks.add(new FireBlock(400,400, fireImage));
             
         }
         
@@ -100,9 +102,9 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener, Key
     public void paintComponent(Graphics g)
     {
         super.paintComponent(g);
-        g.clearRect(0,0, this.getWidth(), this.getHeight());
+        g.clearRect(0,0, 400, 400);
         
-        g.drawImage(background, this.getWidth(), this.getHeight(), this);
+        g.drawImage(background, 400, 400, gamePanel);
         //SOURCE: https://i.ytimg.com/vi/jcO2BD2Ma1c/maxresdefault.jpg
         //Need to figure out how to get a background on JPanel
         //Intersect methods won't take in an object that doesn't extend rectangle
