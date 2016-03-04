@@ -11,7 +11,6 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Image;
-import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
@@ -33,10 +32,10 @@ public class Block extends Rectangle {
     private final String PLAYERFILEPATH = null;
     private final String CATFILEPATH = null;
     
-    public BufferedImage image; 
+    public Image image; 
     public GamePanel gamePanel;
     
-    public Block(int panelWidth, int panelHeight, BufferedImage image)
+    public Block(int panelWidth, int panelHeight, Image image)
         {
          size = new Dimension (panelWidth, panelHeight);
          
