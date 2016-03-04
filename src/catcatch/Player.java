@@ -73,8 +73,8 @@ public class Player extends Rectangle {
     public void paintComponent(Graphics g)
     {
         move();
-        ImageIcon playerImage = new ImageIcon("src/res/fireman.png");
-        playerImage.paintIcon(gamePanel, g, 200, 200);
+        ImageIcon playerImage = new ImageIcon("res/fireman.png");
+        playerImage.paintIcon(this.gamePanel, g, 180, 300);
     }
     
     

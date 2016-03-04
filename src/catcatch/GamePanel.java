@@ -42,7 +42,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     private final JPanel gamePanel = new JPanel();
     private JLabel scoreLabel;
     public Controller theController;
-    private final String message = "Game Over";
+
     private final Image background = (new ImageIcon("src/res/burning_building.jpg").getImage());
     private final Image catImage = (new ImageIcon("src/res/cat.jpg").getImage());
     private final Image fireImage = (new ImageIcon("src/res/fire.jpg").getImage());
@@ -60,7 +60,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
         gamePanel.add(scoreLabel);
         gamePanel.setSize(400, 400);
         //this.setLayout(new GridLayout(1,1));
-        //gamePanel.setBorder(new LineBorder(Color.BLACK));
+        gamePanel.setBorder(new LineBorder(Color.BLACK));
         
         
         catBlocks = new ArrayList<>();
@@ -107,15 +107,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
         
     }
     
-    @Override
-    
+     @Override
     public void paintComponent(Graphics g)
     {
         super.paintComponent(g);
         g.clearRect(0,0, 400, 400);
-        ImageIcon playerImage = new ImageIcon("src/catcatch/fireman.png");
-        playerImage.paintIcon(this, g, 180, 300);
-
                 //SOURCE: https://i.ytimg.com/vi/jcO2BD2Ma1c/maxresdefault.jpg
         //Need to figure out how to get a background on JPanel
         //Intersect methods won't take in an object that doesn't extend rectangle
@@ -137,34 +133,16 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
         for(int i = 0; i<fireBlocks.size(); i++)
         {
             
-            //fireBlocks.get(i).paintComponent(g);
-            
-//            if(player.intersects(fireBlocks.get(i)))
-//            {
-//                player.decrementLives();
-//            }
+            fireBlocks.get(i).paintComponent(g);
+                       if(player.intersects(fireBlocks.get(i)))
+            {
+                player.decrementLives();
+            }
             
         }
         Toolkit.getDefaultToolkit().sync();
          
-    }
-    private void gameFinished(Graphics2D g2d) {
-
-        Font font = new Font("Verdana", Font.BOLD, 18);
-        FontMetrics metr = this.getFontMetrics(font);
-
-        g2d.setColor(Color.BLACK);
-        g2d.setFont(font);
-        g2d.drawString(message,
-                (400 - metr.stringWidth(message)) / 2,
-                400 / 2);
-    }
-    
-    private void drawObjects(Graphics2D g2d){
-        g2d.drawImage(background, 400, 400, gamePanel);
-        g2d.drawImage(playerImage,38,39,200,380,this);
-    }
-    
+    }  
         @Override
     public void keyTyped(KeyEvent event){  
             }
