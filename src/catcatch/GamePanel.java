@@ -50,6 +50,7 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener, Key
         scoreLabel = new JLabel("Your Score: "+player.getScore());
         gui.add(scoreLabel);
         gamePanel.setSize(400, 400);
+        this.setLayout(new GridLayout(1,1));
         gamePanel.setBorder(new LineBorder(Color.BLACK));
         
         catBlocks = new ArrayList<>();
