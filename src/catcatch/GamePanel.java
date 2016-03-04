@@ -4,12 +4,14 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -24,7 +26,7 @@ import javax.swing.border.LineBorder;
  *
  * @author kjrya
  */
-public class GamePanel extends javax.swing.JPanel implements ActionListener /*KeyListener*/{
+public class GamePanel extends javax.swing.JPanel implements ActionListener, KeyListener{
     
     private Timer gameTimer;
     private Timer blockTimer;
@@ -32,23 +34,29 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener /*Ke
     private ArrayList<CatBlock> catBlocks;
     private ArrayList<FireBlock> fireBlocks;
     private Boolean gameStatus;
-    private int score;
     private final JPanel gui = new JPanel(new BorderLayout(3,3));
-    private final JPanel gamePanel  = new JPanel(new GridLayout(5,6));
+    private final JPanel gamePanel = new JPanel();
     private JLabel scoreLabel;
     public Controller theController;
-    private ImageLoader loader;
+    private final Image background = (new ImageIcon("src/res/burning_building.jpg").getImage());
     
     public GamePanel(Controller theController){
+        super();
+        this.addKeyListener(this);
         this.theController = theController;
         initcomponents();
     }
     
     public void initcomponents(){
-        scoreLabel = new JLabel("Your Score: "+score);
+        scoreLabel = new JLabel("Your Score: "+player.getScore());
         gui.add(scoreLabel, BorderLayout.NORTH);
         gui.add(gamePanel, BorderLayout.CENTER);
         gamePanel.setBorder(new LineBorder(Color.BLACK));
+        gameTimer = new Timer(60, this);
+        blockTimer = new Timer(600, this);
+        gameTimer.start();
+        blockTimer.start();
+        setFocusable(true);
         this.add(gui); 
     }
     
@@ -87,13 +95,13 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener /*Ke
     {
         super.paintComponent(g);
         g.clearRect(0,0, this.getWidth(), this.getHeight());
-        //g.drawImage(loader.load("src/res/burning_building.jpg"), this.getWidth(), this.getHeight(), this);
+        g.drawImage(background, this.getWidth(), this.getHeight(), this);
         
         //SOURCE: https://i.ytimg.com/vi/jcO2BD2Ma1c/maxresdefault.jpg
         //Need to figure out how to get a background on JPanel
         //Intersect methods won't take in an object that doesn't extend rectangle
         player.paintComponent(g);
-        
+        /*
         for(int i = 0; i<catBlocks.size();i++)
         {
             
@@ -116,22 +124,21 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener /*Ke
             }
             
         }
-        /*
+        */
         @Override
-        public void keyTyped(KeyEvent event){
-            
+        public void keyTyped(KeyEvent event){  
         }
         
-        @Override
-        public void keyPressed(KeyEvent e){
-            player.keyPressed(e);
+        @Override 
+        public void keyPressed(KeyEvent event){
+            player.keyPressed(event);
         }
         
         @Override
         public void keyReleased(KeyEvent event){
         
         }
-        */
+        
     }
     
 }
