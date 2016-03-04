@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package catcatch;
+import java.awt.image.BufferedImage;
 
 /**
  *
@@ -13,10 +14,11 @@ public class CatBlock extends Block
 {
     private int blockX;
     private int blockY;
+    public BufferedImage image;
     
-    public CatBlock(int x, int y/*String spritePath*/ )
+    public CatBlock(int x, int y, BufferedImage image)
    {
-       super(x, y);
+       super(x, y, image);
    }
    
 }

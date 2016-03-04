@@ -10,6 +10,11 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+import java.io.File;
+import java.io.IOException;
 
 /**
  *
@@ -19,14 +24,19 @@ public class Block extends Rectangle {
     
     final private String SPRITEPATH= null;
     private final Dimension size;
-    //private int blockX;
+    private int blockX;
     private int blockY;
     private int numBlocks;
     private int blockSpeed;
     private final int blockSize;
-
+    private final String FIREFILEPATH = null;
+    private final String PLAYERFILEPATH = null;
+    private final String CATFILEPATH = null;
     
-    public Block(int panelWidth, int panelHeight)
+    public BufferedImage image; 
+    public GamePanel gamePanel;
+    
+    public Block(int panelWidth, int panelHeight, BufferedImage image)
         {
          size = new Dimension (panelWidth, panelHeight);
          
@@ -38,7 +48,8 @@ public class Block extends Rectangle {
          for(int i =0; i < numBlocks; i++ ){
              this.addBlocks();
          }
-         
+         this.image=image;
+         this.gamePanel= new GamePanel();
         }
     public void addBlocks(){
         resetBlock();
@@ -102,5 +113,9 @@ public class Block extends Rectangle {
         }
         return collision;
         
+    }
+    public void drawBlock(Graphics g)
+    {
+        g.drawImage(image, blockX, blockY, gamePanel);
     }
 }
