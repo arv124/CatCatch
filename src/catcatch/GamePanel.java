@@ -107,24 +107,18 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
             
             CatBlock cat = new CatBlock(400,400,this);
             FireBlock fire1 = new FireBlock(400,400,this);
-            FireBlock fire2 = new FireBlock(400,400,this);
             catBlocks.add(cat);
             fireBlocks.add(fire1);
-            fireBlocks.add(fire2);
-            //cat.paintComponent(this.getGraphics());
-            //fire1.paintComponent(this.getGraphics());
-            //fire2.paintComponent(this.getGraphics());
+            
             for(int i = 0; i<catBlocks.size(); i++){
             
                 catBlocks.get(i).move();
-                catBlocks.get(i).paintComponent(this.getGraphics());
                 
             }
             
             for(int i = 0; i<fireBlocks.size(); i++){
             
                 fireBlocks.get(i).move();
-                fireBlocks.get(i).paintComponent(this.getGraphics());
                 
             }
             
@@ -162,10 +156,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
         {
             
             fireBlocks.get(i).paintComponent(g);
-                       if(player.intersects(fireBlocks.get(i)))
-            {
-                player.decrementLives();
-            }
+//            if(player.intersects(fireBlocks.get(i)))
+//            {
+//                player.decrementLives();
+//            }
             
         }
         Toolkit.getDefaultToolkit().sync();
