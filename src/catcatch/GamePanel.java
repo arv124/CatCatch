@@ -71,7 +71,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
         inGame = true;
         gameTimer = new Timer(100, this);
         gameTimer.start();
-        blockTimer = new Timer(500, this);
+        blockTimer = new Timer(1000, this);
         blockTimer.start();
         setFocusable(true);
         requestFocusInWindow();
