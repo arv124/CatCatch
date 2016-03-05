@@ -36,7 +36,7 @@ public class FireBlock extends Rectangle{
         double f = Math.random();
         int random = (int) (panelHeight * f - 50);
         this.size = new Dimension (panelHeight, panelWidth);
-        this.setBounds(random,400,fireSpeed,fireSize);
+        this.setBounds(random,0,fireSpeed,fireSize);
     }
     public Image getFireImage(){
         Image fireImage = new ImageIcon("res/fireBall.png").getImage();
