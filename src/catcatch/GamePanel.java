@@ -107,8 +107,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
             
             CatBlock cat = new CatBlock(400,400,this);
             FireBlock fire1 = new FireBlock(400,400,this);
+            FireBlock fire2 = new FireBlock(400,400,this);
             catBlocks.add(cat);
             fireBlocks.add(fire1);
+            fireBlocks.add(fire2);
             
             for(int i = 0; i<catBlocks.size(); i++){
             
