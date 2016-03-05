@@ -32,7 +32,7 @@ public class CatBlock extends Rectangle
         double f = Math.random();
         int random = (int) (panelHeight * f - 50);
         this.size = new Dimension (panelHeight, panelWidth);
-        this.setBounds(random,400,catSpeed,catSize);
+        this.setBounds(random,0,catSpeed,catSize);
     }
     public Image getCatImage(){
         Image fireImage = new ImageIcon("res/cat.jpg").getImage();
