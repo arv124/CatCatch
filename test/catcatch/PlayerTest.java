@@ -38,34 +38,23 @@ public class PlayerTest {
     }
 
     /**
-     * Test of moveLeft method, of class Player.
+     * Test of move method, of class Player.
      */
     @Test
     public void testMoveLeft() {
-        System.out.println("moveLeft");
-        int currentX = 1;
-        Player instance = null;
+        System.out.println("move");
+        int currentX = 300;
+        Player instance = new Player(null,1,1);
         int expResult = 1;
-        int result = instance.moveLeft(currentX);
+        int result = instance.getXCoord();
+        instance.move();
+        
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        
     }
 
-    /**
-     * Test of moveRight method, of class Player.
-     */
-    @Test
-    public void testMoveRight() {
-        System.out.println("moveRight");
-        int currentX = 5;
-        Player instance = null;
-        int expResult = 5;
-        int result = instance.moveRight(currentX);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    
 
     /**
      * Test of decrementLives method, of class Player.
@@ -75,8 +64,7 @@ public class PlayerTest {
         System.out.println("decrementLives");
         Player instance = new Player("steve", 3, 0);
         instance.decrementLives();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
