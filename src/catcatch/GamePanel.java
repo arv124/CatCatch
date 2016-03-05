@@ -77,8 +77,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
         requestFocusInWindow();
         //gui.add(gamePanel);
         
-        fireBlocks = new ArrayList<>();
-        catBlocks = new ArrayList<>();
         
         FireBlock.blockImages.add("res/fireBall.png");
        
@@ -107,9 +105,28 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
             //adds block objects to their respective arrays
             //still need images for each object
             
-//            catBlocks.add(new CatBlock(400,400, catImage));
-//            fireBlocks.add(new FireBlock(400,400, fireImage));
-//            fireBlocks.add(new FireBlock(400,400, fireImage));
+            CatBlock cat = new CatBlock(400,400,this);
+            FireBlock fire1 = new FireBlock(400,400,this);
+            FireBlock fire2 = new FireBlock(400,400,this);
+            catBlocks.add(cat);
+            fireBlocks.add(fire1);
+            fireBlocks.add(fire2);
+            //cat.paintComponent(this.getGraphics());
+            //fire1.paintComponent(this.getGraphics());
+            //fire2.paintComponent(this.getGraphics());
+            for(int i = 0; i<catBlocks.size(); i++){
+            
+                catBlocks.get(i).move();
+                catBlocks.get(i).paintComponent(this.getGraphics());
+                
+            }
+            
+            for(int i = 0; i<fireBlocks.size(); i++){
+            
+                fireBlocks.get(i).move();
+                fireBlocks.get(i).paintComponent(this.getGraphics());
+                
+            }
             
         }
         
@@ -132,7 +149,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
         for(int i = 0; i<catBlocks.size();i++)
         {
             
-            catBlocks.get(i).drawBlock(g);
+            catBlocks.get(i).paintComponent(g);
             
 //            if(player.intersects(catBlocks.get(i)))
 //            {
