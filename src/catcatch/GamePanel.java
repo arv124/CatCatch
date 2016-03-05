@@ -7,6 +7,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
@@ -55,7 +56,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     }
     
     public void initcomponents(){
-        this.gamePanel.addKeyListener(this);
+        this.gamePanel.addKeyListener(new keyListener());
         player = new Player("P1",3,0);
         scoreLabel = new JLabel("Your Score: "+ player.getScore());
         gamePanel.add(scoreLabel);
@@ -102,9 +103,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
         } 
         else if(obj == blockTimer)
         {
-            //adds block objects to their respective arrays
-            //still need images for each object
             
+            //Generates and adds block objects to their respective arrays  
             CatBlock cat = new CatBlock(400,400,this);
             FireBlock fire1 = new FireBlock(400,400,this);
             FireBlock fire2 = new FireBlock(400,400,this);
@@ -147,22 +147,30 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
             
             catBlocks.get(i).paintComponent(g);
             
-//            if(player.intersects(catBlocks.get(i)))
-//            {
-//                player.increaseScore();
-//                scoreLabel.setText(("Your Score: "+player.getScore()));
-//            }
-            
+            //THIS NEEDS WORK
+            /*
+            if(player.intersects(catBlocks.get(i)))
+            {
+                player.increaseScore();
+                scoreLabel.setText(("Your Score: "+player.getScore()));
+                catBlocks.remove(i);
+            }
+            */
         }
         for(int i = 0; i<fireBlocks.size(); i++)
         {
             
             fireBlocks.get(i).paintComponent(g);
-//            if(player.intersects(fireBlocks.get(i)))
-//            {
-//                player.decrementLives();
-//            }
             
+            //THIS NEEDS WORK
+            /*
+            if(player.intersects(fireBlocks.get(i)))
+            {
+                player.decrementLives();
+                livesLabel.setText("Your Lives: "+ player.getLives());
+                fireBlocks.remove(i);
+            }
+            */
         }
         Toolkit.getDefaultToolkit().sync();
          
@@ -180,6 +188,16 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     public void keyReleased(KeyEvent event){
             player.keyReleased(event);
         }
+    
+    public class keyListener extends KeyAdapter{
+        public void KeyReleased(KeyEvent e){
+            player.keyReleased(e);
+        }
+        
+        public void KeyPressed(KeyEvent e){
+            player.keyPressed(e);
+        }
+    }
     private class ScheduleTask extends TimerTask{
         public void run(){
             player.move();
