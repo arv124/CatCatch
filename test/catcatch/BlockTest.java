@@ -54,7 +54,8 @@ public class BlockTest {
         Block instance= new Block(400,400,(null));
         boolean expResult=true;
         Player plyr =new Player("playerName", 5,0);
-        int result=instance.detectCollsion(plyr);
+        collision = instance.detectCollision(plyr);
+        assertEquals(true, collision);
         fail("The test case is a prototype.");
     }
 }

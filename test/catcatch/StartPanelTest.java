@@ -11,14 +11,18 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import javax.swing.JTextField;
+
 
 /**
  *
  * @author Alex
  */
-public class ScorePanelTest {
+public class StartPanelTest {
     
-    public ScorePanelTest() {
+    static StartPanel startPanel = new StartPanel(new Controller());
+    
+    public StartPanelTest() {
     }
     
     @BeforeClass
@@ -37,22 +41,9 @@ public class ScorePanelTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of readFile method, of class ScorePanel.
-     */
     @Test
-    public void testReadFile() throws Exception {
-        System.out.println("readFile");
-        //creates score panel object
-        ScorePanel instance = new ScorePanel(new StartPanel());
-        //tests the readFile method
-        instance.readFile();
-        //gathers output from file reading
-        String output = instance.getLines();
-        //verifys output
-        assertEquals("[9999 Jeff, 1000 Alex, 255  Mark, 1    Dan, 444  Doug, 999  Seth, 5432 Erin, 6546 JJJ, 345  QWERTY, 666  The Devil]", output);
-        
-        
-    }
+    public void testInstantiation() throws Exception {
+           assertNotNull(startPanel); 
+     }
     
 }
