@@ -11,21 +11,18 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import javax.swing.JTextField;
-
 
 /**
  *
  * @author Alex
  */
-public class StartPanelTest {
+public class ScorePanelTest {
     
-    static StartPanel startPanel = new StartPanel(new Controller());
+    private ScorePanel scorePanel = new ScorePanel(new Controller(), null);
     
-    public StartPanelTest() {
+    public ScorePanelTest() {
         
-        this.testInstantiation();
-        
+            this.testInstantiation();
     }
     
     @BeforeClass
@@ -44,11 +41,8 @@ public class StartPanelTest {
     public void tearDown() {
     }
 
-    @Test
-    public void testInstantiation() {
-           
-        
-        assertNotNull(startPanel); 
-     }
+    public void testInstantiation()
+    {
+        assertNotNull(scorePanel);
+    }}
     
-}
