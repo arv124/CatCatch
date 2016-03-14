@@ -66,7 +66,7 @@ public class Player extends Rectangle {
     
     public void move()
     {
-        if(this.x >= 400-playerSize){
+        if(this.x >= panelWidth-playerSize){
             this.x -=speed;
         } else if(x<=0){
             this.x += speed;
