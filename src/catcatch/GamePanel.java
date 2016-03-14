@@ -31,7 +31,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     
     private Timer gameTimer;
     private Timer blockTimer;
-    static int timerCount;
     private Player player;
     private ArrayList<CatBlock> catBlocks;
     private ArrayList<FireBlock> fireBlocks;
@@ -51,7 +50,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
         super();
         this.addKeyListener(this);
         this.theController = theController;
-        GamePanel.timerCount=0;
         initcomponents();
     }
     
@@ -94,6 +92,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
         {
             //updates panel as per gameTimer
                 this.repaint();
+                player.setLocation(player.currentX, player.getYCoord());
             
             if(player.getLives() == 0){
                 gameTimer.stop();
@@ -181,13 +180,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
         @Override 
     public void keyPressed(KeyEvent event){
             player.keyPressed(event);
+            System.out.println("KEY");
         }
         
         @Override
     public void keyReleased(KeyEvent event){
             player.keyReleased(event);
         }
-    
+    /*
     public class keyListener extends KeyAdapter{
         public void KeyReleased(KeyEvent e){
             player.keyReleased(e);
@@ -197,9 +197,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
             player.keyPressed(e);
         }
     }
+*/
     private class ScheduleTask extends TimerTask{
         public void run(){
-            player.move();
+            //player.move();
             repaint();
         }
     }

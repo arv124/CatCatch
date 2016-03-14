@@ -16,8 +16,6 @@ import javax.swing.ImageIcon;
 public class Player extends Rectangle {
     
     private GamePanel gamePanel;
-    private int startX = 180;
-    private int startY = 300;
     private int playerHeight = 40;
     private int playerWidth = 40;
     private int lives= 3; //this give live a default start value
@@ -26,9 +24,9 @@ public class Player extends Rectangle {
     private String name;
     private final Dimension panelDimension;
     private final int playerSize;
-    private final int speed;
-    private int currentX;
-    private final int CURRENTY = 1;
+    private final int speed = 5;
+    public int currentX = 180;
+    private final int CURRENTY = 300;
     //SOURCE: http://orig11.deviantart.net/505b/f/2013/362/f/6/fire_fighter_cleave_by_norrec18-d6zu5dp.gif
     private final int panelWidth = 400;
     private final int panelHeight = 400;
@@ -42,37 +40,48 @@ public class Player extends Rectangle {
         this.lives = lives;
         this.score = score;
         this.playerSize = 40;
-        this.speed = 10;
         this.panelDimension = new Dimension(panelWidth, panelHeight);
-        this.setBounds(startX, startY, playerHeight, playerHeight);
+        this.setBounds(currentX, CURRENTY, playerHeight, playerHeight);
     }
     
     
     public void keyPressed(KeyEvent e)
     {
-        if(e.getKeyCode() == KeyEvent.VK_LEFT){
-            this.currentX = -speed;
-        } else if (e.getKeyCode() == KeyEvent.VK_RIGHT){
-            this.currentX = speed;
-        }
+        
     }
     
     
     public void keyReleased(KeyEvent e)
     {
-        this.currentX = 0;
+        if(e.getKeyCode() == KeyEvent.VK_LEFT)
+        {
+            moveLeft();
+        } 
+        else if (e.getKeyCode() == KeyEvent.VK_RIGHT)
+        {
+            moveRight();
+        }
     }
     
     
-    public void move()
+    public void moveLeft()
     {
-        if(this.x >= panelWidth-playerSize){
-            this.x -=speed;
-        } else if(x<=0){
-            this.x += speed;
-        } else{
-            this.x+= currentX;
+        if(this.currentX != 0){
+            this.currentX = this.currentX - speed;
         }
+        
+        System.out.println(currentX);  
+        
+    }
+    
+    public void moveRight()
+    {
+        if(this.currentX != 400){
+            this.currentX = this.currentX + speed;
+        }
+        
+        System.out.println(currentX);
+        
     }
     
     //Cleaned up "Magic Numbers" for player x, y, height, and width
@@ -80,9 +89,8 @@ public class Player extends Rectangle {
     
     public void paintComponent(Graphics g)
     {
-        move();
         Image playerImage = new ImageIcon("res/fireman.png").getImage();
-        g.drawImage(playerImage, startX, startY, playerWidth, playerHeight, gamePanel);
+        g.drawImage(playerImage, currentX, CURRENTY, playerWidth, playerHeight, gamePanel);
     }
     
     
@@ -109,6 +117,10 @@ public class Player extends Rectangle {
     public int getXCoord()
         {
            return this.currentX;
+        }
+    public int getYCoord()
+        {
+            return this.CURRENTY;
         }
     public void setCurrentX(int currentX){
         this.x+=currentX;
