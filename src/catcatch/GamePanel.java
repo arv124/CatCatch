@@ -87,7 +87,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
         
         //sets the object to the source of whatever event occurs
         Object obj = event.getSource();
-        this.addKeyListener(this);
         if(obj == gameTimer)
         {
             //updates panel as per gameTimer
