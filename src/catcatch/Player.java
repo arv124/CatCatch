@@ -24,7 +24,7 @@ public class Player extends Rectangle {
     private String name;
     private final Dimension panelDimension;
     private final int playerSize;
-    private final int speed = 15;
+    private final int speed = 10;
     public int currentX = 180;
     private final int CURRENTY = 300;
     //SOURCE: http://orig11.deviantart.net/505b/f/2013/362/f/6/fire_fighter_cleave_by_norrec18-d6zu5dp.gif
@@ -47,20 +47,20 @@ public class Player extends Rectangle {
     
     public void keyPressed(KeyEvent e)
     {
-        
-    }
-    
-    
-    public void keyReleased(KeyEvent e)
-    {
-        if(e.getKeyCode() == KeyEvent.VK_LEFT)
+       if(e.getKeyCode() == KeyEvent.VK_LEFT)
         {
             moveLeft();
         } 
         else if (e.getKeyCode() == KeyEvent.VK_RIGHT)
         {
             moveRight();
-        }
+        } 
+    }
+    
+    
+    public void keyReleased(KeyEvent e)
+    {
+        
     }
     
     

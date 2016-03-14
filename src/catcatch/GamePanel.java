@@ -179,7 +179,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
         @Override 
     public void keyPressed(KeyEvent event){
             player.keyPressed(event);
-            System.out.println("KEY");
         }
         
         @Override
