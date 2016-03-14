@@ -16,6 +16,10 @@ import javax.swing.ImageIcon;
 public class Player extends Rectangle {
     
     private GamePanel gamePanel;
+    private int startX = 180;
+    private int startY = 300;
+    private int playerHeight = 40;
+    private int playerWidth = 40;
     private int lives= 3; //this give live a default start value
     private int score= 0; // same as lives, just a default
     private int increment= 50; // added becuase we might now want the score to just increase by 1
@@ -30,7 +34,8 @@ public class Player extends Rectangle {
     private final int panelHeight = 400;
     private Image playerImage;
     
-    
+    //Cleaned up "Magic Numbers" for player x, y, height, and width
+    //Kyle Ryan
     public Player(String name, int lives, int score)
     {
         this.name = name;
@@ -39,7 +44,7 @@ public class Player extends Rectangle {
         this.playerSize = 40;
         this.speed = 10;
         this.panelDimension = new Dimension(panelWidth, panelHeight);
-        this.setBounds(0, 40, playerSize, playerSize);
+        this.setBounds(startX, startY, playerHeight, playerHeight);
     }
     
     
@@ -70,12 +75,14 @@ public class Player extends Rectangle {
         }
     }
     
+    //Cleaned up "Magic Numbers" for player x, y, height, and width
+    //Kyle Ryan
     
     public void paintComponent(Graphics g)
     {
         move();
         Image playerImage = new ImageIcon("res/fireman.png").getImage();
-        g.drawImage(playerImage, 180, 300, 38, 39, gamePanel);
+        g.drawImage(playerImage, startX, startY, playerWidth, playerHeight, gamePanel);
     }
     
     
