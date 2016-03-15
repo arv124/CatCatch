@@ -5,6 +5,7 @@
  */
 package catcatch;
 
+import java.io.IOException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -44,5 +45,16 @@ public class ScorePanelTest {
     public void testInstantiation()
     {
         assertNotNull(scorePanel);
-    }}
+    }
+    public void testArrayRead()
+        {
+            try
+            {scorePanel.readFile();}
+            catch (IOException e) 
+            {
+                System.out.println("File not read!");
+            } 
+        assertNotNull(scorePanel.lines);
+        }
+}
     

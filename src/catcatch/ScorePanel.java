@@ -20,7 +20,7 @@ public class ScorePanel extends javax.swing.JPanel {
     private String entry;
     private final int MAXSCORELENGTH = 6;
     private Controller theController;
-    private ArrayList<String> lines = new ArrayList<String>();
+    ArrayList<String> lines = new ArrayList<String>();
     // SCOREFILEPATH must be set to local machine address until I figure out how to use relative addresses. :(
     final private String SCOREFILEPATH = "src\\catcatch\\highscores.txt";
     
