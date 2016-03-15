@@ -5,8 +5,7 @@
  */
 package catcatch;
 
-import java.awt.*;
-import java.awt.event.*;
+//Refactor: removed unused Java.awt.* imports by Alex
 import java.io.*;
 import java.util.*;
 import java.nio.charset.Charset;
