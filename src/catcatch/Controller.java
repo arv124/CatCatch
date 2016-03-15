@@ -69,10 +69,13 @@ public class Controller extends JFrame{
     }
     public void switchToGame()
     {
+        GamePanel g = new GamePanel(this);
         jPanel.removeAll();
-        jPanel.add(new GamePanel(this));
+        jPanel.add(g);
         jPanel.invalidate();
         jPanel.validate();
+        g.setFocusable(true);
+        g.requestFocusInWindow();
     }
     public void switchToStart()
     {

@@ -31,11 +31,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     
     private Timer gameTimer;
     private Timer blockTimer;
-    static int timerCount;
     private Player player;
     private ArrayList<CatBlock> catBlocks;
     private ArrayList<FireBlock> fireBlocks;
-    private Boolean inGame;
     private final JPanel gui = new JPanel(new GridLayout(2,1));
     private final JPanel gamePanel = new JPanel();
     private JLabel scoreLabel;
@@ -45,18 +43,19 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     private final Image background = (new ImageIcon("src/res/burning_building.jpg").getImage());
     private final Image catImage = (new ImageIcon("src/res/cat.jpg").getImage());
     private final Image fireImage = (new ImageIcon("src/res/fire.jpg").getImage());
-    private final Image playerImage = (new ImageIcon("src\\res\\fireman.png").getImage());
+    private final Image playerImage = (new ImageIcon("src/res/fireman.png").getImage());
     
     
     public GamePanel(Controller theController){
         super();
+        this.addKeyListener(this);
         this.theController = theController;
-        GamePanel.timerCount=0;
         initcomponents();
     }
     
     public void initcomponents(){
-        this.gamePanel.addKeyListener(new keyListener());
+        
+        //
         player = new Player("P1",3,0);
         scoreLabel = new JLabel("Your Score: "+ player.getScore());
         gamePanel.add(scoreLabel);
@@ -69,7 +68,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
         catBlocks = new ArrayList<>();
         fireBlocks = new ArrayList<>();
         
-        inGame = true;
         gameTimer = new Timer(100, this);
         gameTimer.start();
         blockTimer = new Timer(1000, this);
@@ -89,11 +87,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
         
         //sets the object to the source of whatever event occurs
         Object obj = event.getSource();
-        this.addKeyListener(this);
         if(obj == gameTimer)
         {
             //updates panel as per gameTimer
                 this.repaint();
+                player.setLocation(player.currentX, player.getYCoord());
             
             if(player.getLives() == 0){
                 gameTimer.stop();
@@ -135,7 +133,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
         g.clearRect(0,0, 400, 400);
         
         //SOURCE: https://i.ytimg.com/vi/jcO2BD2Ma1c/maxresdefault.jpg
-        //Need to figure out how to get a background on JPanel
         //Intersect methods won't take in an object that doesn't extend rectangle
         
         Image background = new ImageIcon("res/burningBuilding.jpg").getImage();
@@ -148,14 +145,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
             catBlocks.get(i).paintComponent(g);
             
             //THIS NEEDS WORK
-            /*
+            
             if(player.intersects(catBlocks.get(i)))
             {
                 player.increaseScore();
                 scoreLabel.setText(("Your Score: "+player.getScore()));
                 catBlocks.remove(i);
             }
-            */
+            
         }
         for(int i = 0; i<fireBlocks.size(); i++)
         {
@@ -163,14 +160,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
             fireBlocks.get(i).paintComponent(g);
             
             //THIS NEEDS WORK
-            /*
+            
             if(player.intersects(fireBlocks.get(i)))
             {
                 player.decrementLives();
                 livesLabel.setText("Your Lives: "+ player.getLives());
                 fireBlocks.remove(i);
             }
-            */
+            
         }
         Toolkit.getDefaultToolkit().sync();
          
@@ -188,7 +185,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     public void keyReleased(KeyEvent event){
             player.keyReleased(event);
         }
-    
+    /*
     public class keyListener extends KeyAdapter{
         public void KeyReleased(KeyEvent e){
             player.keyReleased(e);
@@ -198,9 +195,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
             player.keyPressed(e);
         }
     }
+*/
     private class ScheduleTask extends TimerTask{
         public void run(){
-            player.move();
+            //player.move();
             repaint();
         }
     }
