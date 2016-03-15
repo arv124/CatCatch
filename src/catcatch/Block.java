@@ -31,7 +31,8 @@ public class Block extends Rectangle {
     private final String FIREFILEPATH = null;
     private final String PLAYERFILEPATH = null;
     private final String CATFILEPATH = null;
-    
+    public int panelWidth;
+    public int panelHeight;
     public Image image; 
     public GamePanel gamePanel;
     
@@ -42,61 +43,68 @@ public class Block extends Rectangle {
          blockSize = 20;
          blockSpeed = 10;
          numBlocks = 10;
+         panelWidth=panelWidth;
+         panelHeight=panelHeight;
          this.setBounds(0, size.height-blockSize, blockSize, blockSize);
-
-         for(int i =0; i < numBlocks; i++ ){
-             this.addBlocks();
-         }
+//refactoring: Decruftifying (remove resetBlock and AddBlock Methods) Laura L.
+//         for(int i =0; i < numBlocks; i++ ){
+//             this.addBlocks();
+//         }
          this.image=image;
          this.gamePanel= new GamePanel(new Controller());
         }
-    public void addBlocks(){
-        resetBlock();
-        
-    }
-    public void resetBlock(){
-        this.x = (int) (Math.random()* (240 - 20));
-        this.y = (int) (15 + Math.random() *30);
-        blockSpeed = (int) (0.2 + Math.random() * 0.5);
-    }
+//refactoring: Decruftifying (remove resetBlock and AddBlock Methods) Laura L.
+//    public void addBlocks(){
+//        resetBlock();
+//        
+//    }
+//    public void resetBlock(){
+//        //refactored: Replaced Magic Number blockSize with symbolic Constant, Laura L. 
+//        this.x = (int) (Math.random()* (240 - blockSize));
+//        this.y = (int) (15 + Math.random() *30);
+//        blockSpeed = (int) (0.2 + Math.random() * 0.5);
+//    }
+
     
-    public void updateAndDraw (Graphics g){
-        this.update();
-        g.setColor(Color.GREEN);
-        g.fillRect(this.x, this.y, this.width, this.height);
-    }
-    
-    public void update(){
-        this.fall();
-    }
-    
-    public void fall(){
-        int blockBottom = this.y + blockSize;
-        if(blockBottom >= size.height){
-            this.y = size.height - blockSize;
-        }
-        else{
-            this.y += blockSpeed;
-        }
-        for (int i = 0; i< blockY; i++){
-            blockY += i;
-            if(this.collision() == true){
-                this.resetBlock();
-            }
-        }
-        this.y += this.blockSpeed;
-        
-        if(this.y > size.height){
-            resetBlock();
-        }
-    }
+//refactoring: Decruftifying (remove fall(), update(), updateAndDraw()) Laura L. 
+//    public void updateAndDraw (Graphics g){
+//        this.update();
+//        g.setColor(Color.GREEN);
+//        g.fillRect(this.x, this.y, this.width, this.height);
+//    }
+//   
+//    public void update(){
+//        this.fall();
+//    }
+//    
+//    public void fall(){
+//        int blockBottom = this.y + blockSize;
+//        if(blockBottom >= size.height){
+//            this.y = size.height - blockSize;
+//        }
+//        else{
+//            this.y += blockSpeed;
+//        }
+//        for (int i = 0; i< blockY; i++){
+//            blockY += i;
+//            if(this.collision() == true){
+//                this.resetBlock();
+//            }
+//        }
+//        this.y += this.blockSpeed;
+//        
+//        if(this.y > size.height){
+//            resetBlock();
+//        }
+//    }
     public boolean collision(){
         return true;
     }
     
     public int moveDown()//move the position of the block in the grid to one lower (y coordinate)
     {
-        if (blockY>=400)
+        //refactored: Replaced Magic Number panelHeight with symbolic Constant, Laura L. 
+        if (blockY>=panelHeight)
         {
             blockY--;
         }
@@ -106,7 +114,7 @@ public class Block extends Rectangle {
     {
         //to do: initialize int personX& int personY perhaps in a person class?
         boolean collision=false;
-        if (blockY==400&&blockX==player.getXCoord())
+        if (blockY==panelHeight&&blockX==player.getXCoord())
         {
             collision=true;
         }
