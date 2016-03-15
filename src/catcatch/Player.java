@@ -16,8 +16,8 @@ import javax.swing.ImageIcon;
 public class Player extends Rectangle {
     
     private GamePanel gamePanel;
-    private int playerHeight = 40;
-    private int playerWidth = 40;
+    private int playerHeight = 34;
+    private int playerWidth = 39;
     private int lives= 3; //this give live a default start value
     private int score= 0; // same as lives, just a default
     private int increment= 50; // added becuase we might now want the score to just increase by 1
@@ -26,7 +26,7 @@ public class Player extends Rectangle {
     private final int playerSize;
     private final int speed = 10;
     public int currentX = 180;
-    private final int CURRENTY = 300;
+    private final int CURRENTY = 310;
     //SOURCE: http://orig11.deviantart.net/505b/f/2013/362/f/6/fire_fighter_cleave_by_norrec18-d6zu5dp.gif
     private final int panelWidth = 400;
     private final int panelHeight = 400;
