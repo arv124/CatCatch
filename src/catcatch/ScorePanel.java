@@ -16,15 +16,16 @@ import java.nio.charset.Charset;
  */
 public class ScorePanel extends javax.swing.JPanel {
 //
-    private String entry;
-    private final int MAXSCORELENGTH = 6;
+    // Refactor: two unused fields removed by Alex.
+    private int MAXSCORELENGTH;
     private Controller theController;
+    Player player;
     ArrayList<String> lines = new ArrayList<String>();
     // SCOREFILEPATH must be set to local machine address until I figure out how to use relative addresses. :(
     final private String SCOREFILEPATH = "src\\catcatch\\highscores.txt";
     
     
-    public ScorePanel(Controller controller, String panel) 
+    public ScorePanel(Controller controller, String panel, Player player) 
     {
         theController = controller;
         try
@@ -39,6 +40,7 @@ public class ScorePanel extends javax.swing.JPanel {
         
         initComponents(panel);
         
+        player = this.player;
     }
 public void readFile() throws IOException
     {
@@ -83,6 +85,12 @@ try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(SCOREFI
                 System.out.print("Check file source path");
             }
 } 
+
+private void getPlayerName()
+{
+    player.
+}
+
 //for testing
 public String getLines()
 {
@@ -93,7 +101,7 @@ private String formatEntry()
     String rawEntry[] = jFormattedTextField2.getText().split("\\s");
     String rawEntryScore= rawEntry[0];
     String rawEntryName = new String(rawEntry.toString().toCharArray(), rawEntryScore.length()-1, rawEntry.length);
-    /*if(rawEntryScore.length() < MAXSCORELENGTH)
+    if(rawEntryScore.length() < MAXSCORELENGTH)
         {
            int numberOfLeadingZeros = 6 - rawEntryScore.length();
            for(int i = numberOfLeadingZeros-1; i>0; i--)
@@ -102,7 +110,7 @@ private String formatEntry()
            } 
            
         }
-    */
+    
     String formattedEntry = rawEntryScore + "   "+rawEntryName;
     return formattedEntry;
 }
@@ -261,7 +269,7 @@ private String formatEntry()
         {
             jFormattedTextField2.setEditable(true);
         }
-        else {jFormattedTextField2.setEditable(false);}
+        else {jFormattedTextField2.setEditable(true);}
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
             this.writeScoreEntry();
