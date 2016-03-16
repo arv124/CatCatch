@@ -163,7 +163,7 @@ private String formatEntry()
         jTextField10.setEditable(false);
         jTextField10.setText(lines.get(9));
         
-        jFormattedTextField2.setText(score +" ");
+        jFormattedTextField2.setText(score +" Your Name");
 
         jButton1.setText("Submit!");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
