@@ -69,9 +69,7 @@ public class Player extends Rectangle {
     {
         if(this.currentX != 0){
             this.currentX = this.currentX - speed;
-        }
-        
-        System.out.println(currentX);  
+        }  
         
     }
     

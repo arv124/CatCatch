@@ -44,7 +44,7 @@ public class PlayerTest {
     public void testMoveLeft() {
         System.out.println("move");
         int currentX = 300;
-        Player instance = new Player(null,1,1);
+        Player instance = new Player(null,1);
         int expResult = 1;
         int result = instance.getXCoord();
         instance.move();
@@ -62,7 +62,7 @@ public class PlayerTest {
     @Test
     public void testDecrementLives() {
         System.out.println("decrementLives");
-        Player instance = new Player("steve", 3, 0);
+        Player instance = new Player("steve", 0);
         instance.decrementLives();
         
     }
@@ -73,10 +73,11 @@ public class PlayerTest {
     @Test
     public void testIncreaseScore() {
         System.out.println("increaseScore");
-        Player instance = new Player("steve", 3, 0);
+        Player instance = new Player("steve", 0);
         instance.increaseScore();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int expResult = 0;
+        int result = instance.getScore();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -85,7 +86,7 @@ public class PlayerTest {
     @Test
     public void testGetScore() {
         System.out.println("getScore");
-        Player instance = new Player("steve", 3, 1000);
+        Player instance = new Player("steve", 1000);
         int expResult = 1000;
         int result = instance.getScore();
         assertEquals(expResult, result);
@@ -99,7 +100,7 @@ public class PlayerTest {
     @Test
     public void testGetLives() {
         System.out.println("getLives");
-        Player instance = new Player("steve", 3, 0);
+        Player instance = new Player("steve", 0);
         int expResult = 3;
         int result = instance.getLives();
         assertEquals(expResult, result);
@@ -113,7 +114,7 @@ public class PlayerTest {
     @Test
     public void testGetName() {
         System.out.println("getName");
-        Player instance = new Player("steve", 3, 0);
+        Player instance = new Player("steve", 0);
         String expResult = "steve";
         String result = instance.getName();
         assertEquals(expResult, result);
