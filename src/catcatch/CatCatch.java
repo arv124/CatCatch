@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package catcatch;
-import java.awt.image.BufferedImage;
 /**
  *
  * @author Alex

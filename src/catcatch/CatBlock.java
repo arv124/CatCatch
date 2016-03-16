@@ -17,11 +17,12 @@ import javax.swing.ImageIcon;
 public class CatBlock extends Rectangle
 {
     private int catY;
-    private int catSpeed;
-    private int catSize;
+    private final int catSpeed;
+    private final int catSize;
     private final Dimension size;
     private GamePanel gamePanel;
-    private Image catImage;
+    private final Image catImage;
+    //Refactor: Declared variables as final - Qiu
     
     public CatBlock(int panelHeight, int panelWidth, GamePanel gamePanel){
         

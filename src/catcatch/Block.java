@@ -43,8 +43,8 @@ public class Block extends Rectangle {
          blockSize = 20;
          blockSpeed = 10;
          numBlocks = 10;
-         panelWidth=panelWidth;
-         panelHeight=panelHeight;
+         this.panelWidth=panelWidth;
+         this.panelHeight=panelHeight;
          this.setBounds(0, size.height-blockSize, blockSize, blockSize);
 //refactoring: Decruftifying (remove resetBlock and AddBlock Methods) Laura L.
 //         for(int i =0; i < numBlocks; i++ ){

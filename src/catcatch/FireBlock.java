@@ -18,13 +18,12 @@ import javax.swing.ImageIcon;
  * @author Alex
  */
 public class FireBlock extends Rectangle{
-    private int fireY;
-    private int fireSpeed;
-    private int fireSize;
+    private final int fireSpeed;
+    private final int fireSize;
     private final Dimension size;
     private GamePanel gamePanel;
-    private Image fireImage;
-    
+    private final Image fireImage;
+    //Refactor: Removed unuse varible and declared variables as final -Qiu
     public static ArrayList<String> blockImages = new ArrayList<String>();
     
     public FireBlock(int panelHeight, int panelWidth, GamePanel gamePanel){
