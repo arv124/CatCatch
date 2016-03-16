@@ -16,44 +16,23 @@ import javax.swing.ImageIcon;
  *
  * @author Alex
  */
-public class FireBlock extends Rectangle{
-    private final int fireSpeed;
-    private final int fireSize;
-    private final Dimension size;
+public class FireBlock extends Block{
     private GamePanel gamePanel;
     private final Image fireImage;
     //Refactor: Removed unuse varible and declared variables as final -Qiu
     public static ArrayList<String> blockImages = new ArrayList<String>();
+    private String fireImagePath="res/fireball.png";
+    //Source: http://www.someicons.com/desktop-icons-games/donkey-kong-msl/Fireball2.gif
     
     public FireBlock(int panelHeight, int panelWidth, GamePanel gamePanel){
-        
-        this.fireImage = this.getFireImage();
-        this.gamePanel = gamePanel;
-        this.fireSize=32;
-        this.fireSpeed=10;
-        double f = Math.random();
-        int random = (int) (panelHeight * f - 50);
-        this.size = new Dimension (panelHeight, panelWidth);
-        this.setBounds(random,0,fireSpeed,fireSize);
+        super (panelHeight, panelWidth, gamePanel);
+        fireImage= new ImageIcon(fireImagePath).getImage();
     }
     public Image getFireImage(){
-        //Source: http://www.someicons.com/desktop-icons-games/donkey-kong-msl/Fireball2.gif
-        Image fireImage = new ImageIcon("res/fireBall.png").getImage();
         return fireImage;
     }
-    
     public void paintComponent(Graphics g){
         move();
-        g.drawImage(fireImage,this.x,this.y, 32, 32, gamePanel);
-    }
-    
-    public int getCurrentX(){
-        return x;
-    }
-    public int getCurrentY(){
-        return y;
-    }
-    public void move(){
-        this.y +=this.fireSpeed;
+        g.drawImage(fireImage,this.x,this.y, 36, 32, gamePanel);
     }
 }

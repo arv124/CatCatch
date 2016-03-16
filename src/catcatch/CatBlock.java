@@ -14,45 +14,25 @@ import javax.swing.ImageIcon;
  *
  * @author Alex
  */
-public class CatBlock extends Rectangle
+public class CatBlock extends Block
 {
-    private final int catSpeed;
-    private final int catSize;
-    private final Dimension size;
     private GamePanel gamePanel;
     private final Image catImage;
+    private String catImagePath="res/cat.png";
+    //Source: http://png.clipart.me/graphics/thumbs/212/children-vector-illustration-of-jumping-or-flying-little-cat-or-kitten_212809108.jpg
+    
     //Refactor: Declared variables as final - Qiu
     
     public CatBlock(int panelHeight, int panelWidth, GamePanel gamePanel){
-        
-        this.catImage = this.getCatImage();
-        this.gamePanel = gamePanel;
-        this.catSize=36;
-        this.catSpeed=10;
-        double f = Math.random();
-        int random = (int) (panelHeight * f - 50);
-        this.size = new Dimension (panelHeight, panelWidth);
-        this.setBounds(random,0,catSpeed,catSize);
+        super(panelHeight, panelWidth, gamePanel);
+        catImage=new ImageIcon(catImagePath).getImage();
     }
     public Image getCatImage(){
-        //Source: http://png.clipart.me/graphics/thumbs/212/children-vector-illustration-of-jumping-or-flying-little-cat-or-kitten_212809108.jpg
         //Clear background for cats - Qiu
-        Image fireImage = new ImageIcon("res/cat.png").getImage();
-        return fireImage;
+        return catImage;
     }
-    
     public void paintComponent(Graphics g){
-        move();
         g.drawImage(catImage,this.x,this.y, 36, 32, gamePanel);
     }
     
-    public int getCurrentX(){
-        return x;
-    }
-    public int getCurrentY(){
-        return y;
-    }
-    public void move(){
-        this.y +=this.catSpeed;
-    }
 }

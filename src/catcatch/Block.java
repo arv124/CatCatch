@@ -14,115 +14,41 @@ import java.awt.Image;
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
+import javax.swing.ImageIcon;
 
 /**
  *
  * @author Alex
  */
 public class Block extends Rectangle {
-    
-    final private String SPRITEPATH= null;
+  
+    private final int Speed;
+    private final int Size;
     private final Dimension size;
-    private int blockX;
-    private int blockY;
-    private int numBlocks;
-    private int blockSpeed;
-    private final int blockSize;
-    private final String FIREFILEPATH = null;
-    private final String PLAYERFILEPATH = null;
-    private final String CATFILEPATH = null;
-    public int panelWidth;
-    public int panelHeight;
-    public Image image; 
-    public GamePanel gamePanel;
+    private GamePanel gamePanel;
+    //Refactor: Declared variables as final - Qiu
     
-    public Block(int panelWidth, int panelHeight, Image image)
-        {
-         size = new Dimension (panelWidth, panelHeight);
-         
-         blockSize = 20;
-         blockSpeed = 10;
-         numBlocks = 10;
-         this.panelWidth=panelWidth;
-         this.panelHeight=panelHeight;
-         this.setBounds(0, size.height-blockSize, blockSize, blockSize);
-//refactoring: Decruftifying (remove resetBlock and AddBlock Methods) Laura L.
-//         for(int i =0; i < numBlocks; i++ ){
-//             this.addBlocks();
-//         }
-         this.image=image;
-         this.gamePanel= new GamePanel(new Controller());
-        }
-//refactoring: Decruftifying (remove resetBlock and AddBlock Methods) Laura L.
-//    public void addBlocks(){
-//        resetBlock();
-//        
-//    }
-//    public void resetBlock(){
-//        //refactored: Replaced Magic Number blockSize with symbolic Constant, Laura L. 
-//        this.x = (int) (Math.random()* (240 - blockSize));
-//        this.y = (int) (15 + Math.random() *30);
-//        blockSpeed = (int) (0.2 + Math.random() * 0.5);
-//    }
-
-    
-//refactoring: Decruftifying (remove fall(), update(), updateAndDraw()) Laura L. 
-//    public void updateAndDraw (Graphics g){
-//        this.update();
-//        g.setColor(Color.GREEN);
-//        g.fillRect(this.x, this.y, this.width, this.height);
-//    }
-//   
-//    public void update(){
-//        this.fall();
-//    }
-//    
-//    public void fall(){
-//        int blockBottom = this.y + blockSize;
-//        if(blockBottom >= size.height){
-//            this.y = size.height - blockSize;
-//        }
-//        else{
-//            this.y += blockSpeed;
-//        }
-//        for (int i = 0; i< blockY; i++){
-//            blockY += i;
-//            if(this.collision() == true){
-//                this.resetBlock();
-//            }
-//        }
-//        this.y += this.blockSpeed;
-//        
-//        if(this.y > size.height){
-//            resetBlock();
-//        }
-//    }
-    public boolean collision(){
-        return true;
-    }
-    
-    public int moveDown()//move the position of the block in the grid to one lower (y coordinate)
-    {
-        //refactored: Replaced Magic Number panelHeight with symbolic Constant, Laura L. 
-        if (blockY>=panelHeight)
-        {
-            blockY--;
-        }
-         return blockY;   
-    }
-    public boolean detectCollision(Player player)//detect when the block has collided with the person (cat=+, fire=-)
-    {
-        //to do: initialize int personX& int personY perhaps in a person class?
-        boolean collision=false;
-        if (blockY==panelHeight&&blockX==player.getXCoord())
-        {
-            collision=true;
-        }
-        return collision;
+    //Refactor: Inline class. similar methods in Cat& fireblock now moved to Block. Laura L.
+    //also cat& fireblock now extend Block,they did not . Laura L.
+    public Block(int panelHeight, int panelWidth, GamePanel gamePanel){
         
+        //this.Image = this.getImage();
+        this.gamePanel = gamePanel;
+        this.Size=36;
+        this.Speed=10;
+        double f = Math.random();
+        int random = (int) (panelHeight * f - 50);
+        this.size = new Dimension (panelHeight, panelWidth);
+        this.setBounds(random,0,Speed,Size);
     }
-    public void drawBlock(Graphics g)
-    {
-        g.drawImage(image, blockX, blockY, gamePanel);
+    
+    public int getCurrentX(){
+        return x;
+    }
+    public int getCurrentY(){
+        return y;
+    }
+    public void move(){
+        this.y +=this.Speed;
     }
 }

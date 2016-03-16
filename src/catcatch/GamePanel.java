@@ -50,7 +50,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     public void initcomponents(){
         
         //Refactor: KeyListener added by Qiu
-        player = new Player("P1",3,0);
+        player = new Player("P1",0);
         scoreLabel = new JLabel("Your Score: "+ player.getScore());
         gamePanel.add(scoreLabel);
         livesLabel = new JLabel("Your Lives: "+ player.getLives());
