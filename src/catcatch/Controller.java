@@ -62,7 +62,7 @@ public class Controller extends JFrame{
     }
     public void switchToScores()
     {
-        score = g.sendScore();
+        score = g.getPlayer().getScore();
         jPanel.removeAll();
         jPanel.add(new ScorePanel(this, "str", score));
         jPanel.invalidate();
