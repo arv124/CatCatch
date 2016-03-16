@@ -41,30 +41,28 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     public Controller theController;
 
     private final Image background = (new ImageIcon("src/res/burning_building.jpg").getImage());
-    private final Image catImage = (new ImageIcon("src/res/cat.jpg").getImage());
-    private final Image fireImage = (new ImageIcon("src/res/fire.jpg").getImage());
-    private final Image playerImage = (new ImageIcon("src/res/fireman.png").getImage());
+    // Refactor: unused Image variables removed by Qiu
     
     
     public GamePanel(Controller theController){
         super();
-        this.addKeyListener(this);
         this.theController = theController;
         initcomponents();
     }
     
     public void initcomponents(){
         
-        //
+        //Refactor: KeyListener added by Qiu
         player = new Player("P1",3,0);
         scoreLabel = new JLabel("Your Score: "+ player.getScore());
         gamePanel.add(scoreLabel);
         livesLabel = new JLabel("Your Lives: "+ player.getLives());
         gamePanel.add(livesLabel);
         gamePanel.setSize(400, 400);
-        //this.setLayout(new GridLayout(1,1));
         gamePanel.setBorder(new LineBorder(Color.BLACK));
         this.add(gamePanel);
+        this.addKeyListener(this);
+        
         catBlocks = new ArrayList<>();
         fireBlocks = new ArrayList<>();
         
@@ -74,12 +72,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
         blockTimer.start();
         setFocusable(true);
         requestFocusInWindow();
-        //gui.add(gamePanel);
-        
-        
-        FireBlock.blockImages.add("res/fireBall.png");
-       
-        
+
+        //Refactor: unsed Image removed by Qiu
+
     }
     
     @Override
@@ -185,23 +180,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     public void keyReleased(KeyEvent event){
             player.keyReleased(event);
         }
-    /*
-    public class keyListener extends KeyAdapter{
-        public void KeyReleased(KeyEvent e){
-            player.keyReleased(e);
-        }
-        
-        public void KeyPressed(KeyEvent e){
-            player.keyPressed(e);
-        }
-    }
-*/
-    private class ScheduleTask extends TimerTask{
-        public void run(){
-            //player.move();
-            repaint();
-        }
-    }
+// Refactor: unused and commented methods removed by Qiu
         
     
 }

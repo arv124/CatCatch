@@ -39,6 +39,7 @@ public class FireBlock extends Rectangle{
         this.setBounds(random,0,fireSpeed,fireSize);
     }
     public Image getFireImage(){
+        //Source: http://www.someicons.com/desktop-icons-games/donkey-kong-msl/Fireball2.gif
         Image fireImage = new ImageIcon("res/fireBall.png").getImage();
         return fireImage;
     }
