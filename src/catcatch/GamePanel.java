@@ -173,10 +173,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
             player.keyReleased(event);
         }
     
-    public int sendScore()
-    {
-        int score = player.getScore();
-    return score;
+    public Player getPlayer(){
+        return this.player;
     }
 // Refactor: unused and commented methods removed by Qiu
         
