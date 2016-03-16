@@ -40,22 +40,6 @@ public class PlayerTest {
     /**
      * Test of move method, of class Player.
      */
-    @Test
-    public void testMoveLeft() {
-        System.out.println("move");
-        int currentX = 300;
-        Player instance = new Player(null,1);
-        int expResult = 1;
-        int result = instance.getXCoord();
-        instance.move();
-        
-        assertEquals(expResult, result);
-        
-        
-    }
-
-    
-
     /**
      * Test of decrementLives method, of class Player.
      */
@@ -64,7 +48,9 @@ public class PlayerTest {
         System.out.println("decrementLives");
         Player instance = new Player("steve", 0);
         instance.decrementLives();
-        
+        int result = instance.getLives();
+        int expResult = 4;
+        assertEquals(expResult, result);
     }
 
     /**
@@ -75,7 +61,7 @@ public class PlayerTest {
         System.out.println("increaseScore");
         Player instance = new Player("steve", 0);
         instance.increaseScore();
-        int expResult = 0;
+        int expResult = 50;
         int result = instance.getScore();
         assertEquals(expResult, result);
     }
@@ -101,7 +87,7 @@ public class PlayerTest {
     public void testGetLives() {
         System.out.println("getLives");
         Player instance = new Player("steve", 0);
-        int expResult = 3;
+        int expResult = 5;
         int result = instance.getLives();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
