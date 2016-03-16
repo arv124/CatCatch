@@ -37,10 +37,10 @@ public class ScorePanel extends javax.swing.JPanel {
                 e.printStackTrace();
             }
         
-        
+        this.score = score;
         initComponents(panel);
         
-        score= this.score;
+         
     }
 public void readFile() throws IOException
     {
