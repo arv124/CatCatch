@@ -18,7 +18,7 @@ public class Player extends Rectangle {
     private GamePanel gamePanel;
     private int playerHeight = 34;
     private int playerWidth = 39;
-    private int lives= 3; //this give live a default start value
+    private int lives= 5; //this give live a default start value
     private int score= 0; // same as lives, just a default
     private int increment= 50; // added becuase we might now want the score to just increase by 1
     private String name;
@@ -35,7 +35,7 @@ public class Player extends Rectangle {
     
     //Cleaned up "Magic Numbers" for player x, y, height, and width
     //Kyle Ryan
-    public Player(String name, int lives, int score)
+    public Player(String name, int score)
     {
         this.name = name;
         this.lives = lives;
@@ -69,9 +69,7 @@ public class Player extends Rectangle {
     {
         if(this.currentX != 0){
             this.currentX = this.currentX - speed;
-        }
-        
-        System.out.println(currentX);  
+        }  
         
     }
     
