@@ -7,11 +7,9 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
-import java.util.TimerTask;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -39,8 +37,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     private JLabel scoreLabel;
     private JLabel livesLabel;
     public Controller theController;
-
-    private final Image background = (new ImageIcon("src/res/burning_building.jpg").getImage());
+    
     // Refactor: unused Image variables removed by Qiu
     
     
@@ -127,10 +124,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
         super.paintComponent(g);
         g.clearRect(0,0, 400, 400);
         
-        //SOURCE: https://i.ytimg.com/vi/jcO2BD2Ma1c/maxresdefault.jpg
+        //SOURCE: http://pixeljoint.com/files/icons/full/trampolingame.gif
         //Intersect methods won't take in an object that doesn't extend rectangle
         
-        Image background = new ImageIcon("res/burningBuilding.jpg").getImage();
+        Image background = new ImageIcon("res/BBuilding.gif").getImage();
         g.drawImage(background, 0, 0, 400, 400, this.gamePanel);
         player.paintComponent(g);
         
