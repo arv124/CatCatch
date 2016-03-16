@@ -19,13 +19,13 @@ public class ScorePanel extends javax.swing.JPanel {
     // Refactor: two unused fields removed by Alex.
     private int MAXSCORELENGTH;
     private Controller theController;
-    Player player;
+    int score;
     ArrayList<String> lines = new ArrayList<String>();
     // SCOREFILEPATH must be set to local machine address until I figure out how to use relative addresses. :(
     final private String SCOREFILEPATH = "src\\catcatch\\highscores.txt";
     
     
-    public ScorePanel(Controller controller, String panel, Player player) 
+    public ScorePanel(Controller controller, String panel, int score) 
     {
         theController = controller;
         try
@@ -40,7 +40,7 @@ public class ScorePanel extends javax.swing.JPanel {
         
         initComponents(panel);
         
-        player = this.player;
+        score= this.score;
     }
 public void readFile() throws IOException
     {
@@ -86,10 +86,7 @@ try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(SCOREFI
             }
 } 
 
-private void getPlayerName()
-{
-    player.
-}
+
 
 //for testing
 public String getLines()
@@ -166,7 +163,7 @@ private String formatEntry()
         jTextField10.setEditable(false);
         jTextField10.setText(lines.get(9));
         
-        jFormattedTextField2.setText("Your Name Here!");
+        jFormattedTextField2.setText(score +" ");
 
         jButton1.setText("Submit!");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
