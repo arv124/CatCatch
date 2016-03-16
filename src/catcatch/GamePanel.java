@@ -172,6 +172,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     public void keyReleased(KeyEvent event){
             player.keyReleased(event);
         }
+    
+    public Player getPlayer(){
+        return this.player;
+    }
 // Refactor: unused and commented methods removed by Qiu
         
     

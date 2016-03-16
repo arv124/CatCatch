@@ -19,8 +19,8 @@ public class Controller extends JFrame{
     final private int HEIGHT = 0;
     private JFrame jFrame;
     private JPanel jPanel;
-    
-    
+    private int score;
+    GamePanel g = new GamePanel(this);
     public Controller(){
         
         //Controller extends JFrame
@@ -62,14 +62,15 @@ public class Controller extends JFrame{
     }
     public void switchToScores()
     {
+        score = g.getPlayer().getScore();
         jPanel.removeAll();
-        jPanel.add(new ScorePanel(this, "str"));
+        jPanel.add(new ScorePanel(this, "str", score));
         jPanel.invalidate();
         jPanel.validate();
     }
     public void switchToGame()
     {
-        GamePanel g = new GamePanel(this);
+        
         jPanel.removeAll();
         jPanel.add(g);
         jPanel.invalidate();

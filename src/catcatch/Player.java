@@ -35,7 +35,9 @@ public class Player extends Rectangle {
     
     //Cleaned up "Magic Numbers" for player x, y, height, and width
     //Kyle Ryan
-    public Player(String name, /*int lives,*/ int score)
+
+    public Player(String name, int score)
+
     {
         this.name = name;
         this.lives = lives;
@@ -69,9 +71,7 @@ public class Player extends Rectangle {
     {
         if(this.currentX != 0){
             this.currentX = this.currentX - speed;
-        }
-        
-        System.out.println(currentX);  
+        }  
         
     }
     
