@@ -16,7 +16,6 @@ import javax.swing.ImageIcon;
  */
 public class CatBlock extends Rectangle
 {
-    private int catY;
     private final int catSpeed;
     private final int catSize;
     private final Dimension size;
