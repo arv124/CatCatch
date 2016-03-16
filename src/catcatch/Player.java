@@ -26,7 +26,7 @@ public class Player extends Rectangle {
     private final int playerSize;
     private final int speed = 10;
     public int currentX = 180;
-    private final int CURRENTY = 310;
+    private final int CURRENTY = 330;
     //SOURCE: http://orig11.deviantart.net/505b/f/2013/362/f/6/fire_fighter_cleave_by_norrec18-d6zu5dp.gif
     //Cleared background for player -Qiu
     private final int panelWidth = 400;

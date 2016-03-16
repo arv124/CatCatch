@@ -2,16 +2,13 @@ package catcatch;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
-import java.util.TimerTask;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -34,14 +31,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     private Player player;
     private ArrayList<CatBlock> catBlocks;
     private ArrayList<FireBlock> fireBlocks;
-    private final JPanel gui = new JPanel(new GridLayout(2,1));
     private final JPanel gamePanel = new JPanel();
     private JLabel scoreLabel;
     private JLabel livesLabel;
     public Controller theController;
-
-    private final Image background = (new ImageIcon("src/res/burning_building.jpg").getImage());
-    // Refactor: unused Image variables removed by Qiu
+    private final int panelHeight = 400 ;
+    private final int panelWidth =400;
+    
+    // Refactor: unused variables removed by Qiu
     
     
     public GamePanel(Controller theController){
@@ -98,9 +95,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
         {
             
             //Generates and adds block objects to their respective arrays  
-            CatBlock cat = new CatBlock(400,400,this);
-            FireBlock fire1 = new FireBlock(400,400,this);
-            FireBlock fire2 = new FireBlock(400,400,this);
+            CatBlock cat = new CatBlock(panelWidth,panelHeight,this);
+            FireBlock fire1 = new FireBlock(panelWidth,panelHeight,this);
+            FireBlock fire2 = new FireBlock(panelWidth,panelHeight,this);
             catBlocks.add(cat);
             fireBlocks.add(fire1);
             fireBlocks.add(fire2);
@@ -125,21 +122,18 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     public void paintComponent(Graphics g)
     {
         super.paintComponent(g);
-        g.clearRect(0,0, 400, 400);
+        g.clearRect(0,0, panelWidth, panelHeight);
         
-        //SOURCE: https://i.ytimg.com/vi/jcO2BD2Ma1c/maxresdefault.jpg
-        //Intersect methods won't take in an object that doesn't extend rectangle
-        
-        Image background = new ImageIcon("res/burningBuilding.jpg").getImage();
-        g.drawImage(background, 0, 0, 400, 400, this.gamePanel);
+        //SOURCE: http://pixeljoint.com/files/icons/full/trampolingame.gif
+   
+        Image background = new ImageIcon("res/BBuilding.gif").getImage();
+        g.drawImage(background, 0, 0, panelWidth, panelHeight, this.gamePanel);
         player.paintComponent(g);
         
         for(int i = 0; i<catBlocks.size();i++)
         {
             
             catBlocks.get(i).paintComponent(g);
-            
-            //THIS NEEDS WORK
             
             if(player.intersects(catBlocks.get(i)))
             {
@@ -153,9 +147,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
         {
             
             fireBlocks.get(i).paintComponent(g);
-            
-            //THIS NEEDS WORK
-            
+                        
             if(player.intersects(fireBlocks.get(i)))
             {
                 player.decrementLives();

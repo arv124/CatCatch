@@ -7,6 +7,7 @@ package catcatch;
 /**
  *
  * @author Alex
+ * Refractor: deleted ImageLoader class -Qiu
  */
 public class CatCatch {
 
