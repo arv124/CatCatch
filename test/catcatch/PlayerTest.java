@@ -76,8 +76,6 @@ public class PlayerTest {
         int expResult = 1000;
         int result = instance.getScore();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -90,8 +88,6 @@ public class PlayerTest {
         int expResult = 5;
         int result = instance.getLives();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -104,8 +100,6 @@ public class PlayerTest {
         String expResult = "steve";
         String result = instance.getName();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -114,12 +108,10 @@ public class PlayerTest {
     @Test
     public void testGetXCoord() {
         System.out.println("getXCoord");
-        Player instance = null;
-        int expResult = 1;
+        Player instance = new Player("Yoo",20);
+        int expResult = 180;
         int result = instance.getXCoord();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
