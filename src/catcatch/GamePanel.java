@@ -32,10 +32,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     private ArrayList<CatBlock> catBlocks;
     private ArrayList<FireBlock> fireBlocks;
     private final JPanel gamePanel = new JPanel();
+    private final JPanel statPanel = new JPanel();
     private JLabel scoreLabel;
     private JLabel livesLabel;
     public Controller theController;
-    private final int panelHeight = 400 ;
+    private final int panelHeight = 380 ;
     private final int panelWidth =400;
     
     // Refactor: unused variables removed by Qiu
@@ -48,16 +49,24 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     }
     
     public void initcomponents(){
-        
+      
         //Refactor: KeyListener added by Qiu
         player = new Player("P1",0);
         scoreLabel = new JLabel("Your Score: "+ player.getScore());
         gamePanel.add(scoreLabel);
+        
         livesLabel = new JLabel("Your Lives: "+ player.getLives());
         gamePanel.add(livesLabel);
+        
         gamePanel.setSize(400, 400);
         gamePanel.setBorder(new LineBorder(Color.BLACK));
+        
+//        statPanel.setSize(50,50);
+//        statPanel.setBorder(new LineBorder(Color.WHITE));
+        gamePanel.add(statPanel);
+        this.add(statPanel);
         this.add(gamePanel);
+        
         this.addKeyListener(this);
         
         catBlocks = new ArrayList<>();
