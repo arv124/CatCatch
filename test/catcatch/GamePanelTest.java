@@ -5,7 +5,9 @@
  */
 package catcatch;
 
+import java.awt.AWTException;
 import java.awt.Graphics;
+import java.awt.Robot;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import org.junit.After;
@@ -17,9 +19,10 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Alex
+ * @author qpm5006
  */
 public class GamePanelTest {
+    private Controller theController;
     
     public GamePanelTest() {
     }
@@ -41,80 +44,41 @@ public class GamePanelTest {
     }
 
     /**
-     * Test of initcomponents method, of class GamePanel.
+     * Test of increaseChallenge method, of class GamePanel.
      */
     @Test
-    public void testInitcomponents() {
-        System.out.println("initcomponents");
-        GamePanel instance = null;
-        instance.initcomponents();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testIncreaseChallenge() {
+        System.out.println("increaseChallenge");
+        GamePanel instance = new GamePanel(theController);
+        instance.increaseChallenge();
     }
 
     /**
-     * Test of actionPerformed method, of class GamePanel.
+     * Test of getPlayer method, of class GamePanel.
      */
     @Test
-    public void testActionPerformed() {
-        System.out.println("actionPerformed");
-        ActionEvent event = null;
-        GamePanel instance = null;
-        instance.actionPerformed(event);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testGetPlayer() {
+        System.out.println("getPlayer");
+        GamePanel instance = new GamePanel(theController);
+        Player expResult = new Player("P1",0);
+        Player result = instance.getPlayer();
+        assertEquals(expResult, result);
     }
 
     /**
-     * Test of paintComponent method, of class GamePanel.
+     * Test of setInGame method, of class GamePanel.
      */
     @Test
-    public void testPaintComponent() {
-        System.out.println("paintComponent");
-        Graphics g = null;
-        GamePanel instance = null;
-        instance.paintComponent(g);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
     /**
-     * Test of keyTyped method, of class GamePanel.
+     * Test of getInGame method, of class GamePanel.
      */
-    @Test
-    public void testKeyTyped() {
-        System.out.println("keyTyped");
-        KeyEvent event = null;
-        GamePanel instance = null;
-        instance.keyTyped(event);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of keyPressed method, of class GamePanel.
-     */
-    @Test
-    public void testKeyPressed() {
-        System.out.println("keyPressed");
-        KeyEvent event = null;
-        GamePanel instance = null;
-        instance.keyPressed(event);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of keyReleased method, of class GamePanel.
-     */
-    @Test
-    public void testKeyReleased() {
-        System.out.println("keyReleased");
-        KeyEvent event = null;
-        GamePanel instance = null;
-        instance.keyReleased(event);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testGetInGame() {
+        System.out.println("getInGame");
+        GamePanel instance = new GamePanel(theController);
+        boolean expResult = true;
+        boolean result = instance.getInGame();
+        assertEquals(expResult, result);
     }
     
 }
