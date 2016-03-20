@@ -26,8 +26,8 @@ import javax.swing.border.LineBorder;
  */
 public class GamePanel extends JPanel implements ActionListener, KeyListener{
     
-    private Timer gameTimer;
-    private Timer blockTimer;
+    public static Timer gameTimer;
+    public static Timer blockTimer;
     private Player player;
     private ArrayList<CatBlock> catBlocks;
     private ArrayList<FireBlock> fireBlocks;
@@ -38,7 +38,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     private final int panelHeight = 380 ;
     private final int panelWidth =400;
     private boolean ingame;
-    static int timerCount;
     // Refactor: unused variables removed by Qiu
     
     // http://stackoverflow.com/questions/14068956/placing-a-transparent-jpanel-on-top-of-another-jpanel-not-working
@@ -47,7 +46,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     public GamePanel(Controller theController){
         super();
         this.theController = theController;
-        GamePanel.timerCount =0;
         ingame=true;
         initcomponents();
     }
@@ -72,9 +70,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
         catBlocks = new ArrayList<>();
         fireBlocks = new ArrayList<>();
         gameTimer = new Timer(70, this);
-        gameTimer.start();
         blockTimer = new Timer(1000, this);
-        blockTimer.start();
         
         setFocusable(true);
         requestFocusInWindow();

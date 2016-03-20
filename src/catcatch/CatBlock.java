@@ -32,6 +32,7 @@ public class CatBlock extends Block
         return catImage;
     }
     public void paintComponent(Graphics g){
+        move();
         g.drawImage(catImage,this.x,this.y, 36, 32, gamePanel);
     }
     

@@ -77,6 +77,8 @@ public class Controller extends JFrame{
         jPanel.validate();
         g.setFocusable(true);
         g.requestFocusInWindow();
+        GamePanel.gameTimer.start();
+        GamePanel.blockTimer.start();
     }
     public void switchToStart()
     {
