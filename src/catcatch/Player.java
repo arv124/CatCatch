@@ -20,7 +20,7 @@ public class Player extends Rectangle {
     private int playerWidth = 39;
     private int lives; //this give live a default start value
     private int score= 0; // same as lives, just a default
-    private int increment= 50; // added becuase we might now want the score to just increase by 1
+    private int scoreIncrement = 50; // added becuase we might now want the score to just increase by 1
     private String name;
     private final Dimension panelDimension;
     private final int playerSize;
@@ -35,8 +35,7 @@ public class Player extends Rectangle {
     
     //Cleaned up "Magic Numbers" for player x, y, height, and width
     //Kyle Ryan
-    
-    
+      
     public Player(String name, int score)
     {
         this.name = name;
@@ -80,8 +79,6 @@ public class Player extends Rectangle {
             this.currentX = this.currentX + speed;
         }
         
-        System.out.println(currentX);
-        
     }
     
     //Cleaned up "Magic Numbers" for player x, y, height, and width
@@ -100,7 +97,7 @@ public class Player extends Rectangle {
         }
     public void increaseScore()
         {
-            score = score + increment;
+            score = score + scoreIncrement;
         }
     public int getScore()
         {
@@ -122,7 +119,7 @@ public class Player extends Rectangle {
         {
             return this.CURRENTY;
         }
-    public void setCurrentX(int currentX){
-        this.x+=currentX;
-    }
+    //Extracted unused method "setXCoordinate"
+    //Kyle Ryan
+    
 }
