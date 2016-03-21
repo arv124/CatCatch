@@ -39,23 +39,28 @@ public class BlockTest {
     }
     
     @Test
-    public void TestmoveDown(){
-        System.out.println("moveDown");
-        int currentY=1;
-        Block instance= new Block(400,400,(null));
-        int expResult=1;
-        int result = instance.moveDown();
-        fail("The test case is a prototype.");
-    }
     
-    public void TestDetectCollision(){
-        System.out.println("detectCollision");
-        boolean collision= false;
-        Block instance= new Block(400,400,(null));
-        boolean expResult=true;
-        Player plyr =new Player("playerName", 5,0);
-        collision = instance.detectCollision(plyr);
-        assertEquals(true, collision);
-        fail("The test case is a prototype.");
+    
+    public void testGetCurrentX() {
+        System.out.println("getCurrentX");
+        Block instance = new Block(0,0,null);
+        int expResult = 0;
+        int result = instance.getCurrentX();
+        assertEquals(expResult, result);
+    }
+    public void testGetCurrentY(){
+        System.out.println("getCurrentY");
+        Block instance = new Block(0,0,null);
+        int expResult=0;
+        int result=instance.getCurrentY();
+        assertEquals(expResult, result);
+    }
+    public void testMove(){
+        System.out.println("move");
+        Block instance = new Block(0,0,null);
+        int expResult=1;
+        instance.move();
+        int result=instance.getCurrentY();
+        assertEquals(expResult, result);
     }
 }

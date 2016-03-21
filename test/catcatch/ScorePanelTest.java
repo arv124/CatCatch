@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
  */
 public class ScorePanelTest {
     
-    private ScorePanel scorePanel = new ScorePanel(new Controller(), null);
+    private ScorePanel scorePanel = new ScorePanel(new Controller(), null,0);
     
     public ScorePanelTest() {
         
