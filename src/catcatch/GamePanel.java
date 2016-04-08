@@ -130,7 +130,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     }
     public void increaseChallenge(){
            
-        if(player.getScore()>=100){
+        if(player.getScore()>=500){
             this.repaint();
             CatBlock cat = new CatBlock(panelWidth,panelHeight,this);
             FireBlock fire1 = new FireBlock(panelWidth,panelHeight,this);
